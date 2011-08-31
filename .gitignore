@@ -1,0 +1,5 @@
+*.swp
+*.diff
+.venv
+.rvmrc
+.~lock.*
