@@ -1,0 +1,48 @@
+[user]
+	name = sinsoku
+	email = sinsoku.listy@gmail.com
+[color]
+	ui = auto
+[core]
+	excludesfile = ~/.gitignore
+[push]
+	default = tracking
+[alias]
+	ad = add
+	br = branch
+	cf = cat-file -p
+	ci = commit
+	cia = commit --amend
+	cih = commit --amend -C HEAD
+	cl = clean
+	co = checkout
+	d = diff
+	dc = diff --cached
+	debug = rebase --onto HEAD debug^ debug
+	dn = diff --name-only
+	dw = diff --color-words
+	ft = fetch -n --prune
+	ftt = fetch -n --prune origin refs/heads/*:refs/remotes/origin/* refs/tags/*:refs/tags/origin/*
+	h = help
+	k = !gitk --all&
+	l = log --pretty=format:\"%h (%an): %s\" --date=short -20
+	lf = ls-files
+	lgraph = log --graph --all
+	lp = log --oneline -20 -p
+	ls = log --stat -p -1
+	mb = merge-base
+	mt = mergetool -y
+	pl = pull --no-tags
+	ps = push
+	rb = rebase
+	rbh = rebase HEAD
+	rbo = rebase --onto
+	rl = reflog show -20
+	rpo = remote prune origin
+	rs = reset
+	rsh = reset --hard
+	rv = revert
+	sh = show
+	share = daemon --verbose --base-path=/home/sinsoku/repos/ --enable=receive-pack
+	so = remote show origin
+	st = status -s
