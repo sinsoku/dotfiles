@@ -27,7 +27,7 @@
 	l = log --pretty=format:\"%h (%an): %s\" --date=short -20
 	# lf -u でコンフリクトのファイルを表示
 	lf = ls-files
-	lgraph = log --oneline --graph --all
+	lgraph = log --oneline --graph --all -20
 	lp = log --oneline -p -20
 	ls = log --stat -p -1
 	mb = merge-base
