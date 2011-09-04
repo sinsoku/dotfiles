@@ -18,17 +18,17 @@
 	co = checkout
 	d = diff
 	dc = diff --cached
-	debug = rebase --onto HEAD debug^ debug
 	dn = diff --name-only
 	dw = diff --color-words
 	ft = fetch -n --prune
+	# リモートのtagをorigin/<tag-name>にリネーム
 	ftt = fetch -n --prune origin refs/heads/*:refs/remotes/origin/* refs/tags/*:refs/tags/origin/*
 	h = help
-	k = !gitk --all&
 	l = log --pretty=format:\"%h (%an): %s\" --date=short -20
+	# lf -u でコンフリクトのファイルを表示
 	lf = ls-files
-	lgraph = log --graph --all
-	lp = log --oneline -20 -p
+	lgraph = log --oneline --graph --all
+	lp = log --oneline -p -20
 	ls = log --stat -p -1
 	mb = merge-base
 	mt = mergetool -y
@@ -38,11 +38,15 @@
 	rbh = rebase HEAD
 	rbo = rebase --onto
 	rl = reflog show -20
-	rpo = remote prune origin
 	rs = reset
 	rsh = reset --hard
 	rv = revert
 	sh = show
-	share = daemon --verbose --base-path=/home/sinsoku/repos/ --enable=receive-pack
 	so = remote show origin
 	st = status -s
+	# ~/repos をgit-daemonで公開する
+	share = daemon --verbose --base-path=/home/sinsoku/repos/ --enable=receive-pack
+	# debug用
+	debug = rebase --onto HEAD debug^ debug
+	# gitk
+	k = !gitk --all&
