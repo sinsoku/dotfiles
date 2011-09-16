@@ -15,6 +15,7 @@
 	cia = commit --amend
 	cih = commit --amend -C HEAD
 	cl = clean
+	cpick = cherry-pick
 	co = checkout
 	d = diff
 	dc = diff --cached
