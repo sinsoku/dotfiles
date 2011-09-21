@@ -35,6 +35,7 @@
 	mt = mergetool -y
 	pl = pull --no-tags
 	ps = push -u
+	psh = push -u origin HEAD
 	rb = rebase
 	rbh = rebase HEAD
 	rbo = rebase --onto
