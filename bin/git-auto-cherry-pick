@@ -1,0 +1,24 @@
+#!/bin/sh
+# Name
+#   git-auto-chery-pick - Auto apply the change introduced by any existing commits
+#
+# SYNOPSIS
+#   git auto-cherry-pick <commit1>..<commit2>
+#
+# DESCRIPTION
+#   commit1 からcommit2 の変更をcherry-pick する。
+#
+# EXAMPLE
+#   $ base=`git merge-base origin/develop origin/feature/funcA
+#   $ git auto-cherry-pick $base..origin/feature/funcA
+#
+start_commit=${1%%..*}
+end_commit=${1##*..}
+
+if [ $# -eq 0 ]
+then
+  printf "usage: git auto-cherry-pick <commit1>..<commit2>\n"
+else
+  printf "start auto-cherry-pick ${start_commit}..${end_commit}\n"
+  git rev-list --reverse ${start_commit}..${end_commit} | xargs -n 1 git cherry-pick
+fi
