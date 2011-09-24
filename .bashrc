@@ -116,7 +116,7 @@ fi
 PATH=$PATH:~/bin
 
 # Ruby rvm
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
+if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi # This loads RVM into a shell session.
 
 # Python virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
