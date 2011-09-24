@@ -120,7 +120,8 @@ if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 
 # Python virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+source `which virtualenvwrapper.sh`
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 
 has_virtualenv() {
     if [ -e .venv ]; then
