@@ -5,6 +5,7 @@
 	ui = auto
 [core]
 	excludesfile = ~/.gitignore
+	editor = vim
 [push]
 	default = tracking
 [alias]
