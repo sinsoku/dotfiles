@@ -3,3 +3,4 @@
 .venv
 .rvmrc
 .~lock.*
+/.vim/.netrwhist
