@@ -1,5 +1,5 @@
 "encode.vimで内部エンコーディングと自動認識を設定する
-source ~/lib/encode.vim
+source ~/.vim/encode.vim
 
 " filetype plugin
 set nocompatible
