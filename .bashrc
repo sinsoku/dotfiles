@@ -138,4 +138,5 @@ export RSPEC=true
 export AUTOFEATURE=true
 
 # Ruby rails
+alias be="bundle exec"
 alias r="rails"
