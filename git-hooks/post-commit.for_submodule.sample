@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# An example hook script that is called after a successful
+# commit is made.
+#
+# To enable this hook, rename this file to "post-commit".
+
+export supermsg="`git log -n 1 --format="%B" HEAD`"
+export pre_submsg="`git log -n 1 --format="%B%nThis related commit %H" HEAD`"
+git submodule foreach 'if [ -n "`git status -s`" ]; then git add -A; git commit -m "${pre_submsg}"; fi'
+
+submodules=`cat .gitmodules  | grep "\[submodule" | awk 'match($0,/\"[-0-9a-zA-Z_\.\/]*\"/) { print substr($0,RSTART+1,RLENGTH-2) }'`
+for m in $submodules; do
+  if [ -n "`git status -s $m`" ]; then
+    git add $m
+  fi
+done
+
+treeobj=`git write-tree`
+commitobj=`git commit-tree ${treeobj} -p HEAD^ <<EOF
+${supermsg}
+EOF`
+git reset ${commitobj}
+
+export fix_submsg="`git log -n 1 --format="%B%nThis related commit %H" HEAD`"
+git submodule foreach 'if [ "`git log -n 1 --format="%B"`" = "${pre_submsg}" ]; then git commit --amend -m "${fix_submsg}"; fi'
