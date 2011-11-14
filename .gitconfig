@@ -33,6 +33,7 @@
 	lgraph = log --oneline --graph --decorate -20
 	lp = log --oneline -p -20
 	ls = log --stat -p -1
+	ltags = !git tag | grep -v "origin"
 	mb = merge-base
 	mt = mergetool -y
 	pl = pull --no-tags
