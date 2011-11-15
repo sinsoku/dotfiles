@@ -59,7 +59,7 @@ git_branch() {
 }
 
 fossil_branch() {
-    fossil branch 2> /dev/null | grep "^*" | awk '{print "(fossil: " $2 ")"}'
+    fossil branch 2> /dev/null | grep "^*" | awk '{print "(fossil:" $2 ")"}'
 }
 
 if [ "$color_prompt" = yes ]; then
