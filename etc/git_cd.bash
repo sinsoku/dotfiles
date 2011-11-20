@@ -1,6 +1,6 @@
 #!bash
 #
-# version: 0.1
+# version: 0.2
 # license: New BSD License
 #
 # how to install
