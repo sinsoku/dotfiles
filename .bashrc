@@ -150,3 +150,4 @@ git_cd() {
     ret=$?
     if [ ${ret} -eq 0 ]; then cd ${path}; fi
 }
+alias gcd="git_cd"
