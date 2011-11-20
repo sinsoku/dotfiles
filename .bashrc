@@ -144,3 +144,9 @@ export AUTOFEATURE=true
 # Ruby rails
 alias be="bundle exec"
 alias r="rails"
+
+git_cd() {
+    path="`git rev-parse --git-dir`/../$1"
+    ret=$?
+    if [ ${ret} -eq 0 ]; then cd ${path}; fi
+}
