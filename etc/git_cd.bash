@@ -15,7 +15,11 @@ _git_cd()
         git_repo="`git rev-parse --git-dir 2>/dev/null`"
         ret=$?
         if [ ${ret} -ne 0 ]; then return 0; fi
-        git_root="${git_repo%/[^/]*}/"
+        if [ "${git_repo}" == ".git" ]; then
+            git_root="`pwd`/"
+        else
+            git_root="${git_repo%.git}"
+        fi
 
         cur="${COMP_WORDS[COMP_CWORD]}"
         if [ -n "${cur##*/}" ]; then
