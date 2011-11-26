@@ -51,6 +51,10 @@ function! Sha256(data)
     return hashlib#sha256(a:data)
 endfunction
 
+" インデントの変更後、ビジュアルモードの選択を維持する
+vnoremap < <gv
+vnoremap > >gv
+
 " vimdoc-ja
 set helplang=ja
 
