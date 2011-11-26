@@ -7,6 +7,7 @@ Bundle 'thinca/vim-visualstar'
 Bundle 'tpope/vim-speeddating'
 Bundle 'koron/chalice'
 Bundle 'ynkdir/vim-funlib'
+Bundle 'tpope/vim-surround'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
