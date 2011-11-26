@@ -18,6 +18,8 @@ filetype plugin indent on     " required!
 
 " EasyMotion
 let g:EasyMotion_leader_key = '<Leader>'
+" matchit.vim
+runtime macros/matchit.vim
 
 " vimdoc-ja
 set helplang=ja

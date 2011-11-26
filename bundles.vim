@@ -8,5 +8,6 @@ Bundle 'thinca/vim-visualstar'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'rails.vim'
+Bundle 'matchit.vim'
 " non github repos
 "Bundle 'git://git.wincent.com/command-t.git'
