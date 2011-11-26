@@ -1,6 +1,82 @@
 "encode.vimで内部エンコーディングと自動認識を設定する
 source ~/.vim/encode.vim
 
+" vundle
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+source ~/bundles.vim
+
+filetype plugin indent on     " required!
+
+" EasyMotion
+let g:EasyMotion_leader_key = '<Leader>'
+" matchit.vim
+runtime macros/matchit.vim
+" alice.vim
+function s:URLEncode()
+    let l:line = getline('.')
+    let l:encoded = AL_urlencode(l:line)
+    call setline('.', l:encoded)
+endfunction
+
+function s:URLDecode()
+    let l:line = getline('.')
+    let l:encoded = AL_urldecode(l:line)
+    call setline('.', l:encoded)
+endfunction
+command! -nargs=0 -range URLEncode :<line1>,<line2>call <SID>URLEncode()
+command! -nargs=0 -range URLDecode :<line1>,<line2>call <SID>URLDecode()
+" vim-funlib
+function! Random(a, b)
+    return random#randint(a:a, a:b)
+endfunction
+
+function! MD5(data)
+    return hashlib#md5(a:data)
+endfunction
+
+function! Sha1(data)
+    return hashlib#sha1(a:data)
+endfunction
+
+function! Sha256(data)
+    return hashlib#sha256(a:data)
+endfunction
+
+" インデントの変更後、ビジュアルモードの選択を維持する
+vnoremap < <gv
+vnoremap > >gv
+
+" Align
+let g:Align_xstrlen = 3      " for japanese string
+let g:DrChipTopLvlMenu = ' ' " remove 'DrChip' menu
+
+" vim-textmanip
+vmap <C-j> <Plug>(textmanip-move-down)
+vmap <C-k> <Plug>(textmanip-move-up)
+vmap <C-h> <Plug>(textmanip-move-left)
+vmap <C-l> <Plug>(textmanip-move-right)
+vmap <C-d> <Plug>(textmanip-duplicate-down) " copy selected lines
+
+" toggle.vim
+let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'elsif', 'elsif':'else', 'else':'if' }
+
+" vimdoc-ja
+set helplang=ja
+
+" 「日本語入力固定モード」切替キー
+inoremap <silent> <C-j> <C-r>=IMState('FixMode')<CR>
+" PythonによるIBus制御指定
+let IM_CtrlIBusPython = 1
+
 " filetype plugin
 set nocompatible
 syntax on
