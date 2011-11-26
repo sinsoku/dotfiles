@@ -4,3 +4,4 @@
 .rvmrc
 .~lock.*
 /.vim/.netrwhist
+/.vim/bundle
