@@ -16,6 +16,9 @@ source ~/bundles.vim
 
 filetype plugin indent on     " required!
 
+" EasyMotion
+let g:EasyMotion_leader_key = '<Leader>'
+
 " vimdoc-ja
 set helplang=ja
 
