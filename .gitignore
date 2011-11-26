@@ -1,7 +1,2 @@
-*.swp
-*.diff
-.venv
-.rvmrc
-.~lock.*
 /.vim/.netrwhist
 /.vim/bundle

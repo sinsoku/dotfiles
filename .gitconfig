@@ -4,7 +4,7 @@
 [color]
 	ui = auto
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore.global
 	editor = vim
 	quotepath = false
 [push]
