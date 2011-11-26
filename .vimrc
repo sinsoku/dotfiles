@@ -1,6 +1,21 @@
 "encode.vimで内部エンコーディングと自動認識を設定する
 source ~/.vim/encode.vim
 
+" vundle
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+source ~/bundles.vim
+
+filetype plugin indent on     " required!
+
 " vimdoc-ja
 set helplang=ja
 
