@@ -1,6 +1,9 @@
 "encode.vimで内部エンコーディングと自動認識を設定する
 source ~/.vim/encode.vim
 
+" vimdoc-ja
+set helplang=ja
+
 " filetype plugin
 set nocompatible
 syntax on
