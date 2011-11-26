@@ -20,6 +20,36 @@ filetype plugin indent on     " required!
 let g:EasyMotion_leader_key = '<Leader>'
 " matchit.vim
 runtime macros/matchit.vim
+" alice.vim
+function s:URLEncode()
+    let l:line = getline('.')
+    let l:encoded = AL_urlencode(l:line)
+    call setline('.', l:encoded)
+endfunction
+
+function s:URLDecode()
+    let l:line = getline('.')
+    let l:encoded = AL_urldecode(l:line)
+    call setline('.', l:encoded)
+endfunction
+command! -nargs=0 -range URLEncode :<line1>,<line2>call <SID>URLEncode()
+command! -nargs=0 -range URLDecode :<line1>,<line2>call <SID>URLDecode()
+" vim-funlib
+function! Random(a, b)
+    return random#randint(a:a, a:b)
+endfunction
+
+function! MD5(data)
+    return hashlib#md5(a:data)
+endfunction
+
+function! Sha1(data)
+    return hashlib#sha1(a:data)
+endfunction
+
+function! Sha256(data)
+    return hashlib#sha256(a:data)
+endfunction
 
 " vimdoc-ja
 set helplang=ja

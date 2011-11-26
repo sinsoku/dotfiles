@@ -5,6 +5,8 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'timcharper/textile.vim'
 Bundle 'thinca/vim-visualstar'
 Bundle 'tpope/vim-speeddating'
+Bundle 'koron/chalice'
+Bundle 'ynkdir/vim-funlib'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
