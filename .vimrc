@@ -55,6 +55,10 @@ endfunction
 vnoremap < <gv
 vnoremap > >gv
 
+" Align
+let g:Align_xstrlen = 3      " for japanese string
+let g:DrChipTopLvlMenu = ' ' " remove 'DrChip' menu
+
 " vimdoc-ja
 set helplang=ja
 
