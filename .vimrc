@@ -72,11 +72,6 @@ let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'elsif', 'elsif':'else', 'el
 " vimdoc-ja
 set helplang=ja
 
-" 「日本語入力固定モード」切替キー
-inoremap <silent> <C-j> <C-r>=IMState('FixMode')<CR>
-" PythonによるIBus制御指定
-let IM_CtrlIBusPython = 1
-
 " filetype plugin
 set nocompatible
 syntax on
