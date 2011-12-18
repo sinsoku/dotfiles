@@ -72,6 +72,12 @@ let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'elsif', 'elsif':'else', 'el
 " vimdoc-ja
 set helplang=ja
 
+" visualstar
+nnoremap * *N
+nnoremap # #N
+map * <Plug>(visualstar-*)N
+map # <Plug>(visualstar-#)N
+
 " filetype plugin
 set nocompatible
 syntax on
