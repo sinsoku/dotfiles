@@ -57,8 +57,3 @@
 	debug = rebase --onto HEAD debug^ debug
 	# gitk
 	k = !gitk --all&
-	# git-flow
-	fl-i = flow init
-	fl-f = flow feature
-	fl-r = flow release
-	fl-h = flow hotfix
