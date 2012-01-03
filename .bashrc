@@ -144,6 +144,7 @@ export AUTOFEATURE=true
 # Ruby rails
 alias be="bundle exec"
 alias r="rails"
+complete -o default -o nospace -F _rails r
 
 git_cd() {
     path="`git rev-parse --git-dir`/../$1"
