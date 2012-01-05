@@ -28,6 +28,7 @@ Bundle 'ynkdir/vim-funlib'
 Bundle 'Align'
 Bundle 'FuzzyFinder'
 Bundle 'L9'
+Bundle 'yaml.vim'
 " Bundle 'ManPageView'
 " non github repos
 "Bundle 'git://git.wincent.com/command-t.git'
