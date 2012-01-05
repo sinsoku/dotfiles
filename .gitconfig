@@ -47,7 +47,7 @@
 	rl = reflog show -20
 	rs = reset
 	rsh = reset --hard
-	rv = revert
+	rv = revert --no-edit
 	sh = show
 	so = remote show origin
 	st = status -s
