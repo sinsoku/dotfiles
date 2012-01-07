@@ -12,7 +12,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
-source ~/bundles.vim
+source ~/.bundles.vim
 
 filetype plugin indent on     " required!
 
@@ -72,10 +72,11 @@ let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'elsif', 'elsif':'else', 'el
 " vimdoc-ja
 set helplang=ja
 
-" 「日本語入力固定モード」切替キー
-inoremap <silent> <C-j> <C-r>=IMState('FixMode')<CR>
-" PythonによるIBus制御指定
-let IM_CtrlIBusPython = 1
+" visualstar
+nnoremap * *N
+nnoremap # #N
+map * <Plug>(visualstar-*)N
+map # <Plug>(visualstar-#)N
 
 " filetype plugin
 set nocompatible

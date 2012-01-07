@@ -26,6 +26,7 @@
 	ft = fetch -n --prune
 	# リモートのtagをorigin/<tag-name>にリネーム
 	ftt = fetch -n --prune origin refs/heads/*:refs/remotes/origin/* refs/tags/*:refs/tags/origin/*
+	gr = grep -n
 	h = help
 	l = log --pretty=format:\"%h (%an): %s\" --date=short -20
 	# lf -u でコンフリクトのファイルを表示
@@ -46,7 +47,7 @@
 	rl = reflog show -20
 	rs = reset
 	rsh = reset --hard
-	rv = revert
+	rv = revert --no-edit
 	sh = show
 	so = remote show origin
 	st = status -s
@@ -56,8 +57,3 @@
 	debug = rebase --onto HEAD debug^ debug
 	# gitk
 	k = !gitk --all&
-	# git-flow
-	fl-i = flow init
-	fl-f = flow feature
-	fl-r = flow release
-	fl-h = flow hotfix
