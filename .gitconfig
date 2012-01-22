@@ -20,6 +20,7 @@
 	cpick = cherry-pick
 	co = checkout
 	d = diff
+	de = describe --abbrev=0
 	dc = diff --cached
 	dn = diff --name-only
 	dw = diff --color-words
