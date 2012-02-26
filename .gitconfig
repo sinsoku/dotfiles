@@ -24,9 +24,9 @@
 	dc = diff --cached
 	dn = diff --name-only
 	dw = diff --color-words
-	ft = fetch -n --prune
+	ft = fetch -n -p
 	# リモートのtagをorigin/<tag-name>にリネーム
-	ftt = fetch -n --prune origin refs/heads/*:refs/remotes/origin/* refs/tags/*:refs/tags/origin/*
+	ftt = fetch -n -p origin refs/heads/*:refs/remotes/origin/* refs/tags/*:refs/tags/origin/*
 	gr = grep -n
 	h = help
 	l = log --pretty=format:\"%h (%an): %s\" --date=short -20
