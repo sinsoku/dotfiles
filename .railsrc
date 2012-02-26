@@ -1,1 +1,1 @@
---skip-bundle -T
+--skip-bundle -T -m ~/rails_template/template.rb
