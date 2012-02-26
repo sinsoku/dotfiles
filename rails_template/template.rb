@@ -1,3 +1,5 @@
+template_path=File.dirname(__FILE__)
+
 git :init
 git :add => "-A"
 git :commit => "-m 'rails new #{app_name}'"
@@ -23,15 +25,24 @@ run 'bundle install --path vendor/bundle'
 generate 'rspec:install'
 
 # Overwrite .gitignore
-run 'cp ~/rails_template/gitignore/Rails.gitignore .gitignore'
+remove_file '.gitignore'
+
+ignore_body=[]
+ignore_files = [
+  'Rails.gitignore',
+  'Global/vim.gitignore',
+]
+ignore_files.each do |file_name|
+  ignore_body << "# #{file_name}\n" + File.read("#{template_path}/gitignore/#{file_name}")
+end
+file '.gitignore', ignore_body.join("\n\n")
 
 # Add scaffold template
-run 'mkdir -p lib/templates/rails/scaffold_controller/'
-run 'cp ~/rails_template/lib/templates/rails/scaffold_controller/controller.rb lib/templates/rails/scaffold_controller/controller.rb'
+controller_template='lib/templates/rails/scaffold_controller/controller.rb'
+file controller_template, File.read("#{template_path}/#{controller_template}")
 
 rake 'db:create'
 
-git :init
 git :add => "-A"
 git :commit => "-m 'initialize #{app_name}'"
 
