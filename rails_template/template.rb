@@ -1,9 +1,11 @@
 template_path=File.dirname(__FILE__)
 
+# Before initialize
 git :init
 git :add => "-A"
 git :commit => "-m 'rails new #{app_name}'"
 
+# Add required gems
 gem_group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
@@ -12,6 +14,7 @@ gem_group :development, :test do
   gem 'pry-rails'
 end
 
+# Add optional gems
 optional_gems = [
   'haml-rails',
 ]
@@ -21,6 +24,7 @@ optional_gems.each do |gem_name|
   end
 end
 
+# Setup gems
 run 'bundle install --path vendor/bundle'
 generate 'rspec:install'
 
@@ -41,11 +45,14 @@ file '.gitignore', ignore_body.join("\n\n")
 controller_template='lib/templates/rails/scaffold_controller/controller.rb'
 file controller_template, File.read("#{template_path}/#{controller_template}")
 
+# Setup database
 rake 'db:create'
 
+# After initialize
 git :add => "-A"
 git :commit => "-m 'initialize #{app_name}'"
 
+# OPTIMIZE: auto setup spork
 run 'bundle exec spork rspec --bootstrap'
 
 say <<-END
