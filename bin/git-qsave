@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -n "`git diff`" ]
+then
+    git stash save --keep-index
+    git stash apply --index
+fi

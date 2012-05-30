@@ -42,7 +42,6 @@
 	pl = pull --no-tags
 	ps = push -u
 	psh = push -u origin HEAD
-	qsave = !git stash save --keep-index && git stash apply --index
 	rb = rebase
 	rbh = rebase HEAD
 	rbo = rebase --onto
