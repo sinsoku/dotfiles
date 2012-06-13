@@ -152,3 +152,5 @@ git_cd() {
     if [ ${ret} -eq 0 ]; then cd ${path}; fi
 }
 alias gcd="git_cd"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
