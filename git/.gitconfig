@@ -12,6 +12,7 @@
 [alias]
 	ad = add
 	br = branch
+	brs = config --get-regexp branch.*.description
 	cf = cat-file -p
 	ci = commit
 	cia = commit --amend
