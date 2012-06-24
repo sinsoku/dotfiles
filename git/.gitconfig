@@ -1,0 +1,60 @@
+[user]
+	name = sinsoku
+	email = sinsoku.listy@gmail.com
+[color]
+	ui = auto
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+	quotepath = false
+[push]
+	default = tracking
+[alias]
+	ad = add
+	br = branch
+	cf = cat-file -p
+	ci = commit
+	cia = commit --amend
+	cih = commit --amend -C HEAD
+	cl = clean
+	cpick = cherry-pick
+	co = checkout
+	d = diff
+	de = describe --abbrev=0
+	dc = diff --cached
+	dn = diff --name-only
+	dw = diff --color-words
+	ft = fetch -n -p
+	# リモートのtagをorigin/<tag-name>にリネーム
+	ftt = fetch -n -p origin refs/heads/*:refs/remotes/origin/* refs/tags/*:refs/tags/origin/*
+	gr = grep -n
+	h = help
+	l = log --pretty=format:\"%h (%an): %s\" --date=short -20
+	# lf -u でコンフリクトのファイルを表示
+	lf = ls-files
+	lh = log --pretty=format:\"%H\" -20
+	lgraph = log --oneline --graph --decorate -20
+	lp = log --oneline -p -20
+	ls = log --stat -p -1
+	ltags = !git tag | grep -v "origin"
+	mb = merge-base
+	mt = mergetool -y
+	pl = pull --no-tags
+	ps = push -u
+	psh = push -u origin HEAD
+	rb = rebase
+	rbh = rebase HEAD
+	rbo = rebase --onto
+	rl = reflog show -20
+	rs = reset
+	rsh = reset --hard
+	rv = revert --no-edit
+	sh = show
+	so = remote show origin
+	st = status -s
+	# ~/repos をgit-daemonで公開する
+	share = daemon --verbose --base-path=/home/sinsoku/repos/ --enable=receive-pack
+	# debug用
+	debug = rebase --onto HEAD debug^ debug
+	# gitk
+	k = !gitk --all&
