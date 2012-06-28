@@ -1,0 +1,11 @@
+source :rubygems
+
+gem 'pry'
+gem 'rspec'
+
+# rails
+gem 'rails'
+
+# web services
+gem 'heroku'
+gem 'aws-sdk'
