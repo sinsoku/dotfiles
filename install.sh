@@ -2,6 +2,9 @@
 
 shell_path=$(cd $(dirname $0);pwd)
 
+# bash
+ln -fs ${shell_path}/bash/.bashrc ~/
+
 # git
 ln -fs ${shell_path}/git/.gitconfig ~/
 ln -fs ${shell_path}/git/.gitignore_global ~/
