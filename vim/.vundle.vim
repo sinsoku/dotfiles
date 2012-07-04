@@ -22,6 +22,7 @@ Bundle 'kchmck/vim-coffee-script'
 " Bundle 'mattn/gist-vim'
 " Bundle 'motemen/git-vim'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'Shougo/vimproc'
 Bundle 't9md/vim-textmanip'
 " Bundle 'taku-o/vim-toggle'
 Bundle 'thinca/vim-quickrun'

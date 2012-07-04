@@ -14,3 +14,12 @@ vmap <C-k> <Plug>(textmanip-move-up)
 vmap <C-h> <Plug>(textmanip-move-left)
 vmap <C-l> <Plug>(textmanip-move-right)
 vmap <C-d> <Plug>(textmanip-duplicate-down) " copy selected lines
+
+" quickrun
+let g:quickrun_config = {}
+let g:quickrun_config._ = {'runner' : 'vimproc'}
+let g:quickrun_config['ruby.rspec'] = {'command': 'rspec'}
+augroup RSpec
+  autocmd!
+  autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
+augroup END
