@@ -53,6 +53,8 @@ optional_gems = [
   'rails_admin',
   'twitter-bootstrap-rails',
   'therubyracer',
+  'rails-erd',
+  'sdoc',
 ]
 # optional_gems.each do |gem_name|
 #   if yes?("Would you like to install #{gem_name}? (yes/no) ")
