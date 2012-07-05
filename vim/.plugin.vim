@@ -17,7 +17,7 @@ vmap <C-d> <Plug>(textmanip-duplicate-down) " copy selected lines
 
 " quickrun
 let g:quickrun_config = {}
-let g:quickrun_config._ = {'runner' : 'vimproc'}
+let g:quickrun_config._ = {'runner' : 'shell'}
 let g:quickrun_config['ruby.rspec'] = {'command': 'rspec'}
 augroup RSpec
   autocmd!
