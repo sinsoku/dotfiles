@@ -1,7 +1,12 @@
 source :rubygems
 
-gem 'pry'
 gem 'rspec'
+
+# pry
+gem 'pry'
+gem 'pry-doc'
+gem 'pry-nav'
+# gem 'pry-coolline'
 
 # rails
 gem 'rails'
