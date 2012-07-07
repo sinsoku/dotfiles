@@ -20,8 +20,16 @@ set wildmenu
 set foldlevel=0
 set clipboard+=unnamed
 set laststatus=2
-set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 set hlsearch
+set showcmd
+set showmode
+set noswapfile
+set autoread
+" set display=uhex
+
+" JpSpace on underline
+highlight JpSpace cterm=underline ctermfg=Blue guifg=Blue
+au BufRead,BufNew * match JpSpace /　/
 
 " whitespaceEOL on highlight via. gunyara
 highlight WhitespaceEOL ctermbg=red guibg=red

@@ -11,6 +11,7 @@ ln -fs ${shell_path}/vim/.vimrc ~/
 ln -fs ${shell_path}/vim/.encode.vim ~/
 ln -fs ${shell_path}/vim/.plugin.vim ~/
 ln -fs ${shell_path}/vim/.vundle.vim ~/
+ln -fs ${shell_path}/vim/.neocomplcache.vim ~/
 
 # git
 ln -fs ${shell_path}/git/.gitconfig ~/

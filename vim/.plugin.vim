@@ -23,3 +23,12 @@ augroup RSpec
   autocmd!
   autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
 augroup END
+
+" taglist
+set tags=tags
+
+" powerline
+let g:Powerline_symbols = 'fancy'
+set t_Co=256
+
+" source ~/.neocomplcache.vim
