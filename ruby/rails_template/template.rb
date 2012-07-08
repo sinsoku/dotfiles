@@ -35,6 +35,7 @@ gem_group :development, :test do
   # debug
   gem 'sextant'
   gem 'pry-rails'
+  gem 'pry-nav'
   gem 'awesome_print'
 end
 
