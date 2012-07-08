@@ -27,6 +27,9 @@ set noswapfile
 set autoread
 " set display=uhex
 
+" ポップアップメニューの色設定
+hi Pmenu ctermbg=5
+
 " JpSpace on underline
 highlight JpSpace cterm=underline ctermfg=Blue guifg=Blue
 au BufRead,BufNew * match JpSpace /　/
