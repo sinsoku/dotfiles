@@ -31,6 +31,8 @@ gem_group :development, :test do
   gem 'factory_girl_rails'
   gem 'spork-rails'
   gem 'rails_best_practices'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
 
   # debug
   gem 'sextant'

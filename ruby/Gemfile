@@ -1,6 +1,9 @@
 source :rubygems
 
+# test
 gem 'rspec'
+gem 'cucumber'
+gem 'spork', '~> 1.0rc'
 
 # pry
 gem 'pry'

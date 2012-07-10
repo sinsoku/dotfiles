@@ -21,6 +21,7 @@ ln -fs ${shell_path}/git/gitignore ~/
 # ruby
 ln -fs ${shell_path}/ruby/.gemrc ~/
 ln -fs ${shell_path}/ruby/.pryrc ~/
+ln -fs ${shell_path}/ruby/.rspec ~/
 ln -fs ${shell_path}/ruby/.railsrc ~/
 ln -fs ${shell_path}/ruby/rails_template ~/
 ln -fs ${shell_path}/git/gitignore ${shell_path}/ruby/rails_template/
