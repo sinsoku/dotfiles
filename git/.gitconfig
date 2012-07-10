@@ -43,6 +43,8 @@
 	pl = pull --no-tags
 	ps = push -u
 	psh = push -u origin HEAD
+	radd = remote add -f
+	rrm = remote rm
 	rb = rebase
 	rbh = rebase HEAD
 	rbo = rebase --onto
