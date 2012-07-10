@@ -25,19 +25,33 @@ set showcmd
 set showmode
 set noswapfile
 set autoread
-" set display=uhex
+set display=uhex
+set autoindent
+set smartindent
+set cindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=0
+set backspace=indent,eol,start
 
 " ポップアップメニューの色設定
 hi Pmenu ctermbg=5
 
-" JpSpace on underline
-highlight JpSpace cterm=underline ctermfg=Blue guifg=Blue
-au BufRead,BufNew * match JpSpace /　/
-
-" whitespaceEOL on highlight via. gunyara
+" whitespaceEOL on highlight
 highlight WhitespaceEOL ctermbg=red guibg=red
-match WhitespaceEOL /\s\+$/
-autocmd WinEnter * match WhitespaceEOL /\s\+$/
+autocmd BufWinEnter * let w:m1 = matchadd("WhitespaceEOL", '\s\+$')
+autocmd WinEnter * let w:m1 = matchadd("WhitespaceEOL", '\s\+$')
+
+" tabstring on highlight
+highlight TabString ctermbg=red guibg=red
+autocmd BufWinEnter * let w:m2 = matchadd("TabString", '^\t+')
+autocmd WinEnter * let w:m2 = matchadd("TabString", '^\t+')
+
+" JpSpace on underline
+highlight ZenkakuSpace cterm=underline ctermbg=red guibg=red
+autocmd BufWinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
+autocmd WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 
 " auto-mkdir
 augroup vimrc-auto-mkdir  " {{{
