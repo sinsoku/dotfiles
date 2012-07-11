@@ -131,3 +131,7 @@ git_cd() {
     if [ ${ret} -eq 0 ]; then cd ${path}; fi
 }
 alias gcd="git_cd"
+
+# virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
+source `which virtualenvwrapper.sh`
