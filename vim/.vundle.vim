@@ -11,6 +11,7 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 " Bundle 'Shougo/neocomplcache'
@@ -23,6 +24,7 @@ Bundle 'kana/vim-textobj-lastpat'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'plasticboy/vim-markdown'
+Bundle 'rainux/vim-desert-warm-256'
 Bundle 'scrooloose/syntastic'
 Bundle 'sukima/xmledit'
 Bundle 't9md/vim-textmanip'

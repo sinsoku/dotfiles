@@ -1,6 +1,7 @@
 source ~/.encode.vim
 source ~/.vundle.vim
 source ~/.plugin.vim
+source ~/.colors.vim
 
 " vimdoc-ja
 set helplang=ja
@@ -34,24 +35,6 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=0
 set backspace=indent,eol,start
-
-" ポップアップメニューの色設定
-hi Pmenu ctermbg=5
-
-" whitespaceEOL on highlight
-highlight WhitespaceEOL ctermbg=red guibg=red
-autocmd BufWinEnter * let w:m1 = matchadd("WhitespaceEOL", '\s\+$')
-autocmd WinEnter * let w:m1 = matchadd("WhitespaceEOL", '\s\+$')
-
-" tabstring on highlight
-highlight TabString ctermbg=red guibg=red
-autocmd BufWinEnter * let w:m2 = matchadd("TabString", '^\t+')
-autocmd WinEnter * let w:m2 = matchadd("TabString", '^\t+')
-
-" JpSpace on underline
-highlight ZenkakuSpace cterm=underline ctermbg=red guibg=red
-autocmd BufWinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
-autocmd WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 
 " auto-mkdir
 augroup vimrc-auto-mkdir  " {{{

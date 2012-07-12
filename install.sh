@@ -8,6 +8,7 @@ ln -fs ${shell_path}/bash/.bashrc ~/
 # vim
 ln -fs ${shell_path}/vim/.vim ~/
 ln -fs ${shell_path}/vim/.vimrc ~/
+ln -fs ${shell_path}/vim/.colors.vim ~/
 ln -fs ${shell_path}/vim/.encode.vim ~/
 ln -fs ${shell_path}/vim/.plugin.vim ~/
 ln -fs ${shell_path}/vim/.vundle.vim ~/
