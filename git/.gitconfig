@@ -7,6 +7,8 @@
 	excludesfile = ~/.gitignore_global
 	editor = vim
 	quotepath = false
+[mergetool]
+	keepBackup = false
 [push]
 	default = tracking
 [alias]
