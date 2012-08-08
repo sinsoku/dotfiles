@@ -43,6 +43,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tyru/open-browser.vim'
 Bundle 'tyru/operator-camelize.vim'
 Bundle 'ujihisa/neco-ruby'
+Bundle 'vim-jp/vimdoc-ja'
 Bundle 'ynkdir/vim-funlib'
 
 " ruby
