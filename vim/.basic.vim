@@ -30,3 +30,6 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=0
 set backspace=indent,eol,start
+
+nnoremap <Space>. :<C-u>edit $MYVIMRC<Enter>
+nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
