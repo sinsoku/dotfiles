@@ -58,6 +58,8 @@
 	sh = show
 	so = remote show origin
 	st = status -s
+	# 今日やったこと
+	today = !git log --all --oneline --graph --decorate --since=yesterday --committer=`git config user.name`
 	# ~/repos をgit-daemonで公開する
 	share = daemon --verbose --base-path=/home/sinsoku/repos/ --enable=receive-pack
 	# debug用
