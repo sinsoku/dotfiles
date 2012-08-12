@@ -17,7 +17,7 @@ vmap <C-d> <Plug>(textmanip-duplicate-down) " copy selected lines
 
 " quickrun
 let g:quickrun_config = {}
-let g:quickrun_config['ruby.rspec'] = {'runner' : 'shell', 'command': 'rspec'}
+let g:quickrun_config['ruby.rspec'] = {'runner': 'shell', 'command': 'rspec', 'args': "-l %{line('.')}" }
 augroup RSpec
   autocmd!
   autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
