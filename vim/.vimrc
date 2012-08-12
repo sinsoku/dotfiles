@@ -14,3 +14,10 @@ augroup vimrc-auto-mkdir  " {{{
     endif
   endfunction  " }}}
 augroup END  " }}}
+
+" magic comment
+function! MagicComment()
+    let magic_comment = "# -*- coding: utf-8 -*-"
+    call append(0, magic_comment)
+endfunction
+nnoremap <C-m> :call MagicComment()<Enter>
