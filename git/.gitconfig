@@ -33,6 +33,7 @@
 	ftt = fetch -n -p origin refs/heads/*:refs/remotes/origin/* refs/tags/*:refs/tags/origin/*
 	gr = grep -n
 	h = help
+	jd = jump diff
 	l = log --pretty=format:\"%C(yellow)%h%Creset (%an): %s\" --date=short -20
 	# lf -u でコンフリクトのファイルを表示
 	lf = ls-files
