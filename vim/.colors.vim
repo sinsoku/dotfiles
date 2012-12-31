@@ -18,4 +18,3 @@ autocmd WinEnter * let w:m2 = matchadd("TabString", '^\t+')
 highlight ZenkakuSpace cterm=underline ctermbg=red guibg=red
 autocmd BufWinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
 autocmd WinEnter * let w:m3 = matchadd("ZenkakuSpace", '　')
-

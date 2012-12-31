@@ -17,7 +17,7 @@ augroup END  " }}}
 
 " magic comment
 function! MagicComment()
-    let magic_comment = "# -*- coding: utf-8 -*-"
-    call append(0, magic_comment)
+  let magic_comment = "# -*- coding: utf-8 -*-"
+  call append(0, magic_comment)
 endfunction
-nnoremap <C-m> :call MagicComment()<Enter>
+nnoremap <Space>m :call MagicComment()<Enter>
