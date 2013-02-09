@@ -29,5 +29,6 @@ set tags=tags
 " powerline
 let g:Powerline_symbols = 'fancy'
 set t_Co=256
+let g:Powerline_colorscheme = 'bgnone'
 
 " source ~/.neocomplcache.vim

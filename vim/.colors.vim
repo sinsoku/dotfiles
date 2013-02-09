@@ -4,6 +4,12 @@
 
 colorscheme desert-warm-256
 
+" background color
+hi Normal ctermbg=none
+hi NonText ctermbg=none
+hi LineNr ctermbg=none
+hi Folded ctermbg=none
+
 " whitespaceEOL on highlight
 highlight WhitespaceEOL ctermbg=red guibg=red
 autocmd BufWinEnter * let w:m1 = matchadd("WhitespaceEOL", '\s\+$')
