@@ -18,6 +18,7 @@
 	cf = cat-file -p
 	ci = commit
 	cia = commit --amend
+  cie = commit --allow-empty
 	cih = commit --amend -C HEAD
 	cl = clean
 	cpick = cherry-pick
@@ -27,7 +28,8 @@
 	dc = diff --cached
 	dn = diff --name-only
 	dw = diff --color-words
-	ft = fetch -n -p
+  export = !git archive HEAD | tar -x -C
+	ft = fetch -p
 	fta = fetch -p --all
 	# リモートのtagをorigin/<tag-name>にリネーム
 	ftt = fetch -n -p origin refs/heads/*:refs/remotes/origin/* refs/tags/*:refs/tags/origin/*
@@ -38,7 +40,7 @@
 	# lf -u でコンフリクトのファイルを表示
 	lf = ls-files
 	lh = log --pretty=format:\"%H\" -20
-	lgraph = log --oneline --graph --decorate -20
+	lg = log --oneline --graph --decorate -20
 	lp = log --oneline -p -20
 	ls = log --stat -p -1
 	ltags = !git tag | grep -v "origin"

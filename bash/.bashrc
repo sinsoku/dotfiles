@@ -120,10 +120,10 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 PATH=$PATH:$HOME/bin
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 alias be="bundle exec"
 alias r="rails"
+alias z="zeus"
 
 git_cd() {
     path="`git rev-parse --git-dir`/../$1"
@@ -138,3 +138,9 @@ source `which virtualenvwrapper.sh`
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# added by travis gem
+source /home/sinsoku/.travis/travis.sh
