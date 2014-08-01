@@ -35,6 +35,8 @@ NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'rails.vim'
 NeoBundle 'taglist.vim'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
 
 filetype plugin indent on     " Required!
 
@@ -127,6 +129,11 @@ augroup RSpec
   autocmd!
   autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
 augroup END
+let g:quickrun_config.markdown = {'type': 'markdown/pandoc', 'cmdopt': '-s', 'outputter': 'browser'}
 
 " markdown syntax
 autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+" j, k による移動を折り返されたテキストでも自然に振る舞うように変更
+nnoremap j gj
+nnoremap k gk

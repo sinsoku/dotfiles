@@ -1,5 +1,5 @@
-if [ -f /opt/boxen/homebrew/etc/bash_completion ]; then
-  . /opt/boxen/homebrew/etc/bash_completion
+if [ -f /usr/local/etc/bash_completion.d ]; then
+  . /usr/local/etc/bash_completion.d
 fi
 
 if [ -n "$BASH_VERSION" ]; then
