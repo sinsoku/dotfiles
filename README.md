@@ -1,9 +1,48 @@
-## dotfiles, templates, scripts 置き場
+# dotfiles
 
-### 環境
+## Environment
 
-* Ubuntu 12.04
+* MacBook 2016
 
-### インストール
+## brew
 
-`$ install.sh`
+http://brew.sh/
+
+```
+$ brew install $(cat brew/list)
+```
+
+## brew cask
+
+https://caskroom.github.io/
+
+```
+$ brew tap caskroom/cask
+$ brew install $(cat brew/cask_list)
+```
+
+## Ruby
+
+```
+$ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+$ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+$ git clone https://github.com/rbenv/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
+$ git clone https://github.com/amatsuda/gem-src.git ~/.rbenv/plugins/gem-src
+```
+
+## install
+
+```
+$ ./install.sh
+```
+
+## manual install
+
+### from App Store
+
+- Twitter
+- 1Password
+
+### from web
+
+- [Docker for Mac](https://docs.docker.com/docker-for-mac/)
