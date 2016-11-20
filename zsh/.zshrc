@@ -1,38 +1,48 @@
-# Created by newuser for 5.0.5
+# env
+export EDITOR=vim
 
-# zsh-completions
-fpath=(/usr/local/share/zsh-completions $fpath)
+# zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
-autoload -Uz compinit
-compinit -u
+# theme
+zplug 'themes/sorin', from:oh-my-zsh
 
-# rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# plugins
+zplug "b4b4r07/emoji-cli"
+zplug "mollifier/cd-gitroot"
+zplug "mrowa44/emojify", as:command
+zplug "plugins/bundler", from:oh-my-zsh
+zplug "plugins/osx", from:oh-my-zsh
 
-# nvm
-source $(brew --prefix nvm)/nvm.sh
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load --verbose
+
+# keymaps
+bindkey -e # emacs
+bindkey "^Xe" emoji::cli
+
+# load cd-gitroot
+fpath=($ZPLUG_HOME/repos/mollifier/cd-gitroot(N-/) $fpath)
+autoload -Uz cd-gitroot
 
 # alias
 alias l="ls -G"
 alias ll="ls -alG"
-alias be="bundle exec"
+alias vi="vim"
 
-# pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-# prompt
-autoload colors
+# colors
+autoload -Uz colors
 colors
-PROMPT="%{${fg[green]}%}%n%{${reset_color}%}@%{${fg[cyan]}%}%m%{${reset_color}%}: %{${fg[yellow]}%}%~%{${reset_color}%}
-%# "
 
-# prompt for vcs
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '(%s)-[%b]'
-zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
-precmd () {
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-RPROMPT="%1(v|%F{green}%1v%f|)"
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
