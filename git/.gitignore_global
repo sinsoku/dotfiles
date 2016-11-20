@@ -1,7 +1,0 @@
-*.swp
-*.diff
-.venv
-.rvmrc
-.~lock.*
-/.rails_generators~
-*.orig
