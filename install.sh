@@ -7,6 +7,7 @@ ln -fs ${shell_path}/zsh/.zshrc ~/
 
 # git
 ln -fs ${shell_path}/git/.gitconfig ~/
+ln -fs ${shell_path}/git/.gitignore_global ~/
 
 # ruby
 ln -fs ${shell_path}/ruby/.gemrc ~/
