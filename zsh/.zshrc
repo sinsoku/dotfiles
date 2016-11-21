@@ -48,3 +48,6 @@ colors
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# nvm
+source $(brew --prefix nvm)/nvm.sh

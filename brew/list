@@ -20,6 +20,7 @@ libsodium
 libtiff
 libtool
 libyaml
+nvm
 openssl
 pango
 pcre
