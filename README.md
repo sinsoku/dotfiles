@@ -30,6 +30,15 @@ $ git clone https://github.com/rbenv/rbenv-default-gems.git ~/.rbenv/plugins/rbe
 $ git clone https://github.com/amatsuda/gem-src.git ~/.rbenv/plugins/gem-src
 ```
 
+## Vim
+
+https://github.com/junegunn/vim-plug
+
+```
+$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
 ## install
 
 ```
