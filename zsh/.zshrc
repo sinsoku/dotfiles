@@ -9,7 +9,6 @@ source $ZPLUG_HOME/init.zsh
 zplug 'themes/sorin', from:oh-my-zsh
 
 # plugins
-
 zplug "b4b4r07/emoji-cli", on:"stedolan/jq"
 zplug "mollifier/cd-gitroot"
 zplug "mrowa44/emojify", as:command
