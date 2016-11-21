@@ -9,11 +9,13 @@ source $ZPLUG_HOME/init.zsh
 zplug 'themes/sorin', from:oh-my-zsh
 
 # plugins
-zplug "b4b4r07/emoji-cli"
+
+zplug "b4b4r07/emoji-cli", on:"stedolan/jq"
 zplug "mollifier/cd-gitroot"
 zplug "mrowa44/emojify", as:command
 zplug "plugins/bundler", from:oh-my-zsh
 zplug "plugins/osx", from:oh-my-zsh
+zplug "stedolan/jq", from:gh-r, as:command, rename-to:jq
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
