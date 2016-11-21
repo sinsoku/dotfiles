@@ -59,6 +59,6 @@
     # clean-br
     clean-br = !git branch -d `git branch --merged master | grep -v master`
 [rebase]
-  autosquash = true
+    autosquash = true
 [push]
-  default = current
+    default = current
