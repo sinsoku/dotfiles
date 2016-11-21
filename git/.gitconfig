@@ -17,6 +17,7 @@
     cih = commit --amend -C @
     cif = commit --fixup
     ci-empty = commit --allow-empty -m '[ci skip] empty'
+    ci-reset-time = !git commit --amend -C @ --date=`date +"%Y-%m-%dT%H:%M:%S"`
     cl = clean
     cpick = cherry-pick
     co = checkout
@@ -35,7 +36,7 @@
     # lf -u でコンフリクトのファイルを表示
     lf = ls-files
     lg = log --oneline --graph --decorate -20
-    lge = !git log --oneline --graph --decorate -20 --color | emojify
+    lge = !PAGER=emojify git log --oneline --graph --decorate -20 --color
     ls = log --stat -p -1
     pl = pull --no-tags
     plr = pull --rebase
