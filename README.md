@@ -30,6 +30,14 @@ $ git clone https://github.com/rbenv/rbenv-default-gems.git ~/.rbenv/plugins/rbe
 $ git clone https://github.com/amatsuda/gem-src.git ~/.rbenv/plugins/gem-src
 ```
 
+### RubyGems
+
+https://rubygems.org
+
+```
+$ curl -u sinsoku https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials; chmod 0600 ~/.gem/credentials
+```
+
 ## Vim
 
 https://github.com/junegunn/vim-plug
