@@ -13,6 +13,7 @@ harfbuzz
 heroku
 hub
 icu4c
+imagemagick
 jpeg
 libffi
 libpng
@@ -20,6 +21,7 @@ libsodium
 libtiff
 libtool
 libyaml
+mysql
 nvm
 openssl
 pango
@@ -36,6 +38,7 @@ ricty
 ruby
 sqlite
 vim
+xz
 zeromq
 zplug
 zsh
