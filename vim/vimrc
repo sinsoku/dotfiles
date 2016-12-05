@@ -91,3 +91,6 @@ nnoremap k gk
 
 " ect を html シンタックスにする
 autocmd BufRead,BufNewFile *.ect set filetype=html
+
+" Vagrantfile を Ruby シンタックスにする
+autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
