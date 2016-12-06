@@ -1,3 +1,4 @@
+awscli
 cairo
 czmq
 fontconfig
@@ -15,6 +16,7 @@ hub
 icu4c
 imagemagick
 jpeg
+jq
 libffi
 libpng
 libsodium
@@ -23,6 +25,7 @@ libtool
 libyaml
 mysql
 nvm
+oniguruma
 openssl
 pango
 pcre
