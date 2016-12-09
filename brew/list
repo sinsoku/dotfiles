@@ -2,6 +2,7 @@ ansible
 awscli
 cairo
 czmq
+emojify
 fontconfig
 fontforge
 freetype
