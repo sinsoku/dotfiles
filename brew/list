@@ -1,3 +1,4 @@
+ansible
 awscli
 cairo
 czmq
@@ -27,6 +28,7 @@ mysql
 nvm
 oniguruma
 openssl
+openssl@1.1
 pango
 pcre
 peco
