@@ -38,6 +38,14 @@ https://rubygems.org
 $ curl -u sinsoku https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials; chmod 0600 ~/.gem/credentials
 ```
 
+## Node
+
+https://github.com/creationix/nvm
+
+```
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+```
+
 ## Vim
 
 https://github.com/junegunn/vim-plug
