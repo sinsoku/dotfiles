@@ -13,7 +13,7 @@ zplug "b4b4r07/emoji-cli", on:"stedolan/jq"
 zplug "mollifier/cd-gitroot"
 zplug "plugins/bundler", from:oh-my-zsh
 zplug "plugins/osx", from:oh-my-zsh
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
