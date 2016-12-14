@@ -71,3 +71,4 @@ $ ./install.sh
 ### from web
 
 - [Docker for Mac](https://docs.docker.com/docker-for-mac/)
+- [Terraform](https://www.terraform.io/)
