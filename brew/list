@@ -2,6 +2,7 @@ ansible
 awscli
 c-ares
 cairo
+cmake
 czmq
 dbus
 emojify
@@ -47,6 +48,7 @@ pixman
 pkg-config
 postgresql
 python
+qt5
 readline
 ricty
 ruby
