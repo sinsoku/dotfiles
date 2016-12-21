@@ -1,8 +1,6 @@
 [user]
     name = sinsoku
     email = sinsoku.listy@gmail.com
-[color]
-    ui = auto
 [core]
     excludesfile = ~/.gitignore_global
     editor = vim
