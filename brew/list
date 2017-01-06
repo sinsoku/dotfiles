@@ -5,6 +5,7 @@ cairo
 cmake
 czmq
 dbus
+direnv
 emojify
 fontconfig
 fontforge
