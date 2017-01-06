@@ -39,6 +39,7 @@ nettle
 oniguruma
 openssl
 openssl@1.1
+packer
 pango
 pcre
 peco
