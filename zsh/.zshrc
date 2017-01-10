@@ -53,3 +53,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# travis gem
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
