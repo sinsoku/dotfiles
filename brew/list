@@ -37,6 +37,7 @@ libtool
 libyaml
 mysql
 nettle
+node
 oniguruma
 openssl
 openssl@1.1
@@ -59,6 +60,7 @@ terraform
 vim
 wireshark
 xz
+yarn
 zeromq
 zplug
 zsh
