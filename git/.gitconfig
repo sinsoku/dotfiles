@@ -1,6 +1,7 @@
 [user]
     name = sinsoku
     email = sinsoku.listy@gmail.com
+    signingkey = 92BA66D80B19ADF2
 [core]
     excludesfile = ~/.gitignore_global
     editor = vim
@@ -62,3 +63,5 @@
     autosquash = true
 [push]
     default = current
+[commit]
+    gpgsign = true
