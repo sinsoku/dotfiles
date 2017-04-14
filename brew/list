@@ -30,6 +30,7 @@ imagemagick
 jpeg
 jq
 libassuan
+libevent
 libffi
 libgcrypt
 libgpg-error
@@ -60,12 +61,14 @@ pkg-config
 postgresql
 pth
 python
+qt
 qt5
 readline
 ricty
 ruby
 sqlite
 terraform
+tor
 vim
 wireshark
 xz
