@@ -1,10 +1,13 @@
 ansible
+augeas
 awscli
 c-ares
 cairo
+certbot
 cmake
 czmq
 dbus
+dialog
 direnv
 dirmngr
 emojify
