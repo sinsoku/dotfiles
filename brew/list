@@ -1,3 +1,4 @@
+adns
 ansible
 augeas
 awscli
@@ -11,6 +12,7 @@ dialog
 direnv
 dirmngr
 emojify
+ffmpeg
 fontconfig
 fontforge
 freetype
@@ -21,6 +23,7 @@ gettext
 git
 glib
 gmp
+gnupg
 gnupg2
 gnutls
 gobject-introspection
@@ -31,7 +34,9 @@ hub
 icu4c
 imagemagick
 jpeg
+jpegoptim
 jq
+lame
 libassuan
 libevent
 libffi
@@ -43,15 +48,18 @@ libsodium
 libtasn1
 libtiff
 libtool
+libunistring
 libusb
 libusb-compat
 libyaml
 mysql
 nettle
 node
+npth
 oniguruma
 openssl
 openssl@1.1
+p11-kit
 packer
 pango
 pcre
@@ -67,6 +75,7 @@ python
 qt
 qt5
 readline
+redis
 ricty
 ruby
 sqlite
@@ -74,6 +83,8 @@ terraform
 tor
 vim
 wireshark
+x264
+xvid
 xz
 yarn
 zeromq
