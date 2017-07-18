@@ -28,6 +28,7 @@
     export = !git archive HEAD | tar -x -C
     ft = fetch -p
     fta = fetch -p --all
+    ft-pr = "!f(){ git fetch origin pull/$1/head:pr_$1;};f"
     # リモートのtagをorigin/<tag-name>にリネーム
     ftt = fetch -n -p origin refs/heads/*:refs/remotes/origin/* refs/tags/*:refs/tags/origin/*
     gr = grep -n
