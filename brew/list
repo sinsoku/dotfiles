@@ -5,6 +5,7 @@ awscli
 c-ares
 cairo
 certbot
+chromedriver
 cmake
 czmq
 dbus
