@@ -52,6 +52,7 @@
     rv = revert --no-edit
     sh = show
     st = status -s
+    show-branch-description = "!f(){ git config branch.$(git rev-parse --abbrev-ref ${1:-@}).description;};f"
     # 今日やったこと
     today = !git log --all --oneline --graph --decorate --since=yesterday --author=`git config user.name`
     # 今週やったこと
