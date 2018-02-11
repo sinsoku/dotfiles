@@ -17,7 +17,7 @@
     cih = commit --amend -C @
     cif = commit --fixup
     ci-empty = commit --allow-empty -m '[ci skip] empty'
-    ci-reset-time = !git commit --amend -C @ --date=`date +"%Y-%m-%dT%H:%M:%S"`
+    ci-reset-time = !git commit --amend -C @ --date=now
     cl = clean
     cpick = cherry-pick
     co = checkout
