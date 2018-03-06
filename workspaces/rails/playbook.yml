@@ -1,0 +1,52 @@
+- name: rails
+  hosts: all
+  gather_facts: no
+
+  vars:
+    bootstrap_path: /tmp/bootstrap.sh
+    rails_path: ~/src/rails
+
+  pre_tasks:
+    - name: install python-simplejson
+      raw: sudo apt-get -y install python-simplejson
+      register: output
+      changed_when: output.stdout.find("1 newly installed") != -1
+
+  tasks:
+    - name: Download bootstrap.sh
+      get_url:
+        url: https://raw.githubusercontent.com/rails/rails-dev-box/master/bootstrap.sh
+        dest: "{{ bootstrap_path }}"
+
+    - name: Replace user from vagrant to ubuntu
+      replace:
+        path: "{{ bootstrap_path }}"
+        regexp: "vagrant"
+        replace: "ubuntu"
+
+    - name: Install packages
+      become: yes
+      apt:
+        name: "{{ item }}"
+      with_items:
+        - libreadline-dev
+
+    - command: which ruby
+      register: which_ruby
+      failed_when: which_ruby.rc not in [0, 1]
+      changed_when: no
+
+    - name: Bootstrap for Rails
+      become: yes
+      command: "bash {{ bootstrap_path }}"
+      when: which_ruby.rc == 1
+
+    - name: git clone rails/rails
+      git:
+        repo: "https://github.com/rails/rails.git"
+        dest: "{{ rails_path }}"
+
+    - name: bundle install
+      bundler:
+        chdir: "{{ rails_path }}"
+        extra_args: "--jobs=4"

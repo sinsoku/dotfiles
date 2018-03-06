@@ -1,0 +1,27 @@
+# frozen_string_literal: true
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "dummy"
+
+  config.vm.provider :aws do |aws, override|
+    # Ubuntu Server 16.04 LTS (HVM), SSD Volume Type
+    aws.ami = "ami-48630c2e"
+
+    # m3.medium  $0.096 / hour
+    # m3.large   $0.193 / hour
+    # m3.xlarge  $0.385 / hour
+    # m3.2xlarge $0.77  / hour
+    aws.instance_type = "m3.2xlarge"
+
+    aws.keypair_name = ENV["AWS_KEYPAIR_NAME"]
+    aws.security_groups = ["rails-dev"]
+    aws.tags = { Name: "rails-dev" }
+
+    override.ssh.username = "ubuntu"
+    override.ssh.private_key_path = "~/.ssh/#{ENV["AWS_KEYPAIR_NAME"]}.pem"
+  end
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yml"
+  end
+end
