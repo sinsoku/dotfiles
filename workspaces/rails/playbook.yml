@@ -41,9 +41,9 @@
       command: "bash {{ bootstrap_path }}"
       when: which_ruby.rc == 1
 
-    - name: git clone rails/rails
+    - name: git clone sinsoku/rails
       git:
-        repo: "https://github.com/rails/rails.git"
+        repo: "https://github.com/sinsoku/rails.git"
         dest: "{{ rails_path }}"
 
     - name: bundle install
