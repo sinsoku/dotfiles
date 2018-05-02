@@ -14,6 +14,7 @@ zplug "mollifier/cd-gitroot"
 zplug "plugins/bundler", from:oh-my-zsh
 zplug "plugins/osx", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "b4b4r07/enhancd", use:init.sh
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -44,12 +45,11 @@ autoload -Uz colors
 colors
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+. "/usr/local/opt/nvm/nvm.sh"
 
 autoload -U add-zsh-hook
 load-nvmrc() {
@@ -77,3 +77,6 @@ eval "$(direnv hook zsh)"
 
 # travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+
+# enhancd
+export ENHANCD_FILTER=peco

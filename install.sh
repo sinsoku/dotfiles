@@ -15,7 +15,7 @@ ln -fs ${shell_path}/ruby/.railsrc ~/
 ln -fs ${shell_path}/ruby/.rspec ~/
 
 # rbenv
-[ -d ~/.rbenv ] || mkdir ~/.rbenv
+# [ -d ~/.rbenv ] || mkdir ~/.rbenv
 ln -fs ${shell_path}/ruby/default-gems ~/.rbenv/
 
 # vim
