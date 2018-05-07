@@ -25,7 +25,7 @@ if ! zplug check --verbose; then
 fi
 
 # Then, source plugins and add commands to $PATH
-zplug load --verbose
+zplug load
 
 # keymaps
 bindkey -e # emacs
@@ -47,9 +47,8 @@ colors
 # rbenv
 eval "$(rbenv init -)"
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+# nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # direnv
 eval "$(direnv hook zsh)"
