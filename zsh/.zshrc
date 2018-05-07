@@ -80,3 +80,8 @@ eval "$(direnv hook zsh)"
 
 # enhancd
 export ENHANCD_FILTER=peco
+
+# zprof
+if (which zprof > /dev/null 2>&1) ;then
+  zprof
+fi
