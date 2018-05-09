@@ -27,3 +27,6 @@ ln -fs ${shell_path}/ruby/default-gems ~/.rbenv/
 [ -d ~/.vim ] || mkdir ~/.vim
 ln -fs ${shell_path}/vim/vimrc ~/.vim/
 vim -c PlugInstall
+
+# bin
+ln -fs ${shell_path}/bin ~/
