@@ -61,6 +61,7 @@
     share = daemon --verbose --base-path=/home/sinsoku/repos/ --enable=receive-pack
     # clean-br
     clean-br = !git branch -d `git branch --merged master | grep -v master`
+    vimp = !git ls-files | peco | xargs -o vim
 [rebase]
     autosquash = true
 [push]
