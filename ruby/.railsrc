@@ -1,1 +1,1 @@
--B -T
+--skip-bundle --skip-test
