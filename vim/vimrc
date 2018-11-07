@@ -4,6 +4,7 @@ Plug 'scrooloose/syntastic'
 Plug 'thinca/vim-visualstar'
 Plug 'tomtom/tcomment_vim'
 Plug 'vim-jp/vimdoc-ja'
+Plug 'hashivim/vim-terraform'
 
 " lang
 Plug 'elixir-lang/vim-elixir'
@@ -96,3 +97,7 @@ autocmd BufRead,BufNewFile *.ect set filetype=html
 
 " Vagrantfile を Ruby シンタックスにする
 autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
+
+
+" vim-terraform
+let g:terraform_fmt_on_save = 1
