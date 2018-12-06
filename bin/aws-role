@@ -1,0 +1,3 @@
+#!/bin/sh
+
+aws-mfa --assume-role $MFA_ASSUME_ROLE $*
