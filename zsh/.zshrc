@@ -39,6 +39,7 @@ autoload -Uz cd-gitroot
 alias l="ls -G"
 alias ll="ls -alG"
 alias vi="vim"
+alias aws-whoami="aws sts get-caller-identity --output text --query Arn"
 
 # colors
 autoload -Uz colors
