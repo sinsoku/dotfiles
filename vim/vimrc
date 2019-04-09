@@ -11,6 +11,9 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'slim-template/vim-slim'
 Plug 'hashivim/vim-terraform'
 Plug 'moro/vim-review'
+Plug 'udalov/kotlin-vim'
+Plug 'chr4/nginx.vim'
+Plug 'leafgarland/typescript-vim'
 
 " colorscheme
 Plug 'rainux/vim-desert-warm-256'
