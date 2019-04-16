@@ -69,4 +69,6 @@
 [commit]
     gpgsign = true
 [include]
-    path = ~/.gitconfig_private
+	path = /Users/shotoku-takumi/.gitconfig_private
+[protocol]
+	version = 2
