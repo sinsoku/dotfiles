@@ -1,82 +1,82 @@
-[user]
-    name = sinsoku
-    email = sinsoku.listy@gmail.com
-    signingkey = 92BA66D80B19ADF2
 [core]
-    excludesfile = ~/.gitignore_global
-    editor = vim
-    quotepath = false
-	commitGraph = true
-[mergetool]
-    keepBackup = false
-[alias]
-    ad = add
-    br = branch
-    cf = cat-file -p
-    ci = commit
-    cia = commit --amend
-    cih = commit --amend -C @
-    cif = commit --fixup
-    ci-empty = commit --allow-empty -m '[ci skip] empty'
-    ci-reset-time = commit --amend -C @ --date=now
-    cl = clean
-    cpick = cherry-pick
-    co = checkout
-    d = diff
-    dc = diff --cached
-    dn = diff --name-only
-    dw = diff --color-words
-    export = !git archive HEAD | tar -x -C
-    ft = fetch
-    fta = fetch --all
-    ft-pr = "!f(){ git fetch origin pull/$1/head:pr_$1;};f"
-    # リモートのtagをorigin/<tag-name>にリネーム
-    ftt = fetch -n origin refs/heads/*:refs/remotes/origin/* refs/tags/*:refs/tags/origin/*
-    gr = grep -n
-    h = help
-    l = log --pretty=format:\"%C(yellow)%h%Creset (%an): %s\" --date=short -20
-    # lf -u でコンフリクトのファイルを表示
-    lf = ls-files
-    lg = log --oneline --graph --decorate -20
-    lge = !PAGER=emojify git log --oneline --graph --decorate -20 --color
-    ls = log --stat -p -1
-    pl = pull --no-tags
-    plr = pull --rebase
-    ps = push -u
-    psh = push -u origin HEAD
-    rb = rebase
-    rbh = rebase HEAD
-    rbo = rebase --onto
-    rl = reflog show -20
-    rs = reset
-    rsh = reset --hard
-    rv = revert --no-edit
-    sh = show
-    st = status
-    show-branch-description = "!f(){ git config branch.$(git rev-parse --abbrev-ref ${1:-@}).description;};f"
-    # 今日やったこと
-    today = !git log --all --oneline --graph --decorate --since=yesterday --author=`git config user.name`
-    # 今週やったこと
-    week = !git log --all --oneline --graph --decorate --since=1_week_ago --author=`git config user.name`
-    # ~/repos をgit-daemonで公開する
-    share = daemon --verbose --base-path=/home/sinsoku/repos/ --enable=receive-pack
-    # clean-br
-    clean-br = !git branch -d `git branch --merged master | grep -v master`
-    vimp = !git ls-files | peco | xargs -o vim
-[rebase]
-    autosquash = true
-	autoStash = true
-[push]
-    default = current
-[commit]
-    gpgsign = true
-	cleanup = scissors
-[include]
-	path = /Users/shotoku-takumi/.gitconfig_private
+  excludesfile = ~/.gitignore_global
+  editor = vim
+  quotepath = false
+  commitGraph = true
 [protocol]
-	version = 2
+  version = 2
+[user]
+  name = sinsoku
+  email = sinsoku.listy@gmail.com
+  signingkey = 92BA66D80B19ADF2
+[alias]
+  ad = add
+  br = branch
+  cf = cat-file -p
+  ci = commit
+  cia = commit --amend
+  cih = commit --amend -C @
+  cif = commit --fixup
+  ci-empty = commit --allow-empty -m '[ci skip] empty'
+  ci-reset-time = commit --amend -C @ --date=now
+  cl = clean
+  cpick = cherry-pick
+  co = checkout
+  d = diff
+  dc = diff --cached
+  dn = diff --name-only
+  dw = diff --color-words
+  export = !git archive HEAD | tar -x -C
+  ft = fetch
+  fta = fetch --all
+  ft-pr = "!f(){ git fetch origin pull/$1/head:pr_$1;};f"
+  # リモートのtagをorigin/<tag-name>にリネーム
+  ftt = fetch -n origin refs/heads/*:refs/remotes/origin/* refs/tags/*:refs/tags/origin/*
+  gr = grep -n
+  h = help
+  l = log --pretty=format:\"%C(yellow)%h%Creset (%an): %s\" --date=short -20
+  # lf -u でコンフリクトのファイルを表示
+  lf = ls-files
+  lg = log --oneline --graph --decorate -20
+  lge = !PAGER=emojify git log --oneline --graph --decorate -20 --color
+  ls = log --stat -p -1
+  pl = pull --no-tags
+  plr = pull --rebase
+  ps = push -u
+  psh = push -u origin HEAD
+  rb = rebase
+  rbh = rebase HEAD
+  rbo = rebase --onto
+  rl = reflog show -20
+  rs = reset
+  rsh = reset --hard
+  rv = revert --no-edit
+  sh = show
+  st = status
+  show-branch-description = "!f(){ git config branch.$(git rev-parse --abbrev-ref ${1:-@}).description;};f"
+  # 今日やったこと
+  today = !git log --all --oneline --graph --decorate --since=yesterday --author=`git config user.name`
+  # 今週やったこと
+  week = !git log --all --oneline --graph --decorate --since=1_week_ago --author=`git config user.name`
+  # ~/repos をgit-daemonで公開する
+  share = daemon --verbose --base-path=/home/sinsoku/repos/ --enable=receive-pack
+  # clean-br
+  clean-br = !git branch -d `git branch --merged master | grep -v master`
+  vimp = !git ls-files | peco | xargs -o vim
+[commit]
+  gpgsign = true
+  cleanup = scissors
 [fetch]
-	prune = true
+  prune = true
+[mergetool]
+  keepBackup = false
+[push]
+  default = current
+[rebase]
+  autosquash = true
+  autoStash = true
 [status]
-	short = true
-	branch = true
+  short = true
+  branch = true
+[include]
+  path = ~/.gitconfig_private
