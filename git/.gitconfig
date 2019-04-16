@@ -13,8 +13,8 @@
     ad = add
     br = branch
     cf = cat-file -p
-    ci = commit --cleanup=scissors
-    cia = commit --amend --cleanup=scissors
+    ci = commit
+    cia = commit --amend
     cih = commit --amend -C @
     cif = commit --fixup
     ci-empty = commit --allow-empty -m '[ci skip] empty'
@@ -69,6 +69,7 @@
     default = current
 [commit]
     gpgsign = true
+	cleanup = scissors
 [include]
 	path = /Users/shotoku-takumi/.gitconfig_private
 [protocol]
