@@ -65,6 +65,7 @@
     vimp = !git ls-files | peco | xargs -o vim
 [rebase]
     autosquash = true
+	autoStash = true
 [push]
     default = current
 [commit]
