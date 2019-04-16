@@ -6,6 +6,7 @@
     excludesfile = ~/.gitignore_global
     editor = vim
     quotepath = false
+	commitGraph = true
 [mergetool]
     keepBackup = false
 [alias]
