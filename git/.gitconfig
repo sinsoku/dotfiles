@@ -29,9 +29,6 @@
   export = !git archive HEAD | tar -x -C
   ft = fetch
   fta = fetch --all
-  ft-pr = "!f(){ git fetch origin pull/$1/head:pr_$1;};f"
-  # リモートのtagをorigin/<tag-name>にリネーム
-  ftt = fetch -n origin refs/heads/*:refs/remotes/origin/* refs/tags/*:refs/tags/origin/*
   gr = grep -n
   h = help
   l = log --pretty=format:\"%C(yellow)%h%Creset (%an): %s\" --date=short -20
@@ -40,8 +37,6 @@
   lg = log --oneline --graph --decorate -20
   lge = !PAGER=emojify git log --oneline --graph --decorate -20 --color
   ls = log --stat -p -1
-  pl = pull --no-tags
-  plr = pull --rebase
   ps = push -u
   psh = push -u origin HEAD
   rb = rebase
@@ -58,8 +53,6 @@
   today = !git log --all --oneline --graph --decorate --since=yesterday --author=`git config user.name`
   # 今週やったこと
   week = !git log --all --oneline --graph --decorate --since=1_week_ago --author=`git config user.name`
-  # ~/repos をgit-daemonで公開する
-  share = daemon --verbose --base-path=/home/sinsoku/repos/ --enable=receive-pack
   # clean-br
   clean-br = !git branch -d `git branch --merged master | grep -v master`
   vimp = !git ls-files | peco | xargs -o vim
