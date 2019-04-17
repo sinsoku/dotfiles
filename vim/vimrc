@@ -31,7 +31,6 @@ set laststatus=2
 set hlsearch
 set showcmd
 set showmode
-set noswapfile
 set autoread
 set display=uhex
 set autoindent
