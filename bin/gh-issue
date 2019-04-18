@@ -4,7 +4,7 @@ ISSUES_PATH=".github/issues"
 
 list() {
   if [ -e "$ISSUES_PATH" ]; then
-    for f in $(ls $ISSUES_PATH); do
+    for f in $(ls -p $ISSUES_PATH | grep -v / | sort -n --reverse); do
       printf '\e[32m%8s\e[m  ' "#${f%.*}"
       head -n 1 "$ISSUES_PATH/$f" | cut -b 3-
     done
