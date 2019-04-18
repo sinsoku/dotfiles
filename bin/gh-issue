@@ -1,0 +1,51 @@
+#!/bin/bash
+
+ISSUES_PATH=".github/issues"
+
+list() {
+  if [ -e "$ISSUES_PATH" ]; then
+    for f in $(ls $ISSUES_PATH); do
+      printf '\e[32m%8s\e[m  ' "#${f%.*}"
+      head -n 1 "$ISSUES_PATH/$f" | cut -b 3-
+    done
+  fi
+}
+
+fetch() {
+  if [ ! -e "$ISSUES_PATH" ]; then
+    mkdir -p "$ISSUES_PATH/cache"
+  fi
+
+  for n in $(hub issue -f '%I'); do
+    hub issue show $n > "$ISSUES_PATH/cache/$n.md"
+
+    if [ ! -e "$ISSUES_PATH/$n.md" ]; then
+      cp "$ISSUES_PATH/cache/$n.md" "$ISSUES_PATH/$n.md"
+    fi
+  done
+}
+
+push() {
+  if [ -e "$ISSUES_PATH" ]; then
+    echo 'TODO: push'
+  fi
+}
+
+usage() {
+  echo 'usage: gh-issue <command>'
+  echo
+  echo '  fetch  Fetch issues from GitHub to local'
+  echo '  push   Push issues from local to GitHub'
+  echo '  diff   Display diff between GitHub and local'
+}
+
+if [ -z "$1" ]; then
+  list
+else
+  case "$1" in
+    "list" ) list;;
+    "fetch" ) fetch;;
+    "push" ) push;;
+    * ) usage;;
+  esac
+fi
