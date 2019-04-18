@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ISSUES_PATH=".github/issues"
+CACHE_PATH="$ISSUES_PATH/cache"
 
 list() {
   if [ -e "$ISSUES_PATH" ]; then
@@ -13,14 +14,14 @@ list() {
 
 fetch() {
   if [ ! -e "$ISSUES_PATH" ]; then
-    mkdir -p "$ISSUES_PATH/cache"
+    mkdir -p "$CACHE_PATH"
   fi
 
   for n in $(hub issue -f '%I '); do
     hub issue show $n > "$ISSUES_PATH/cache/$n.md"
 
     if [ ! -e "$ISSUES_PATH/$n.md" ]; then
-      cp "$ISSUES_PATH/cache/$n.md" "$ISSUES_PATH/$n.md"
+      cp "$CACHE_PATH/$n.md" "$ISSUES_PATH/$n.md"
     fi
   done
 }
