@@ -3,7 +3,7 @@
 ISSUES_PATH=".github/issues"
 CACHE_PATH="$ISSUES_PATH/cache"
 
-list() {
+gh-list() {
   if [ -e "$ISSUES_PATH" ]; then
     for f in $(ls -p $ISSUES_PATH | grep -v / | sort -n --reverse); do
       printf '\e[32m%8s\e[m  ' "#${f%.*}"
@@ -12,7 +12,7 @@ list() {
   fi
 }
 
-fetch() {
+gh-fetch() {
   if [ ! -e "$ISSUES_PATH" ]; then
     mkdir -p "$CACHE_PATH"
   fi
@@ -26,13 +26,21 @@ fetch() {
   done
 }
 
-push() {
+gh-push() {
   if [ -e "$ISSUES_PATH" ]; then
     echo 'TODO: push'
   fi
 }
 
-usage() {
+gh-diff() {
+  if [ -e "$ISSUES_PATH" ]; then
+    for f in $(ls -p $ISSUES_PATH | grep -v / | sort -n --reverse); do
+      diff "$CACHE_PATH/$f" "$ISSUES_PATH/$f"
+    done
+  fi
+}
+
+gh-usage() {
   echo 'usage: gh-issue <command>'
   echo
   echo '  list   Display issues in local'
@@ -42,12 +50,13 @@ usage() {
 }
 
 if [ -z "$1" ]; then
-  list
+  gh-list
 else
   case "$1" in
-    "list" ) list;;
-    "fetch" ) fetch;;
-    "push" ) push;;
-    * ) usage;;
+    "list"  ) gh-list;;
+    "fetch" ) gh-fetch;;
+    "push"  ) gh-push;;
+    "diff"  ) gh-diff;;
+    *       ) gh-usage;;
   esac
 fi
