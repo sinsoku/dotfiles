@@ -16,7 +16,7 @@ fetch() {
     mkdir -p "$ISSUES_PATH/cache"
   fi
 
-  for n in $(hub issue -f '%I'); do
+  for n in $(hub issue -f '%I '); do
     hub issue show $n > "$ISSUES_PATH/cache/$n.md"
 
     if [ ! -e "$ISSUES_PATH/$n.md" ]; then
