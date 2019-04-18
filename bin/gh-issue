@@ -35,7 +35,12 @@ gh-push() {
 gh-diff() {
   if [ -e "$ISSUES_PATH" ]; then
     for f in $(ls -p $ISSUES_PATH | grep -v / | sort -n --reverse); do
-      diff "$CACHE_PATH/$f" "$ISSUES_PATH/$f"
+      diff_res=$(diff "$CACHE_PATH/$f" "$ISSUES_PATH/$f")
+
+      if [ $? -eq 1 ]; then
+        echo "$ISSUES_PATH/$f"
+        echo "$diff_res"
+      fi
     done
   fi
 }
