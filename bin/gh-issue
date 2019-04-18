@@ -35,6 +35,7 @@ push() {
 usage() {
   echo 'usage: gh-issue <command>'
   echo
+  echo '  list   Display issues in local'
   echo '  fetch  Fetch issues from GitHub to local'
   echo '  push   Push issues from local to GitHub'
   echo '  diff   Display diff between GitHub and local'
