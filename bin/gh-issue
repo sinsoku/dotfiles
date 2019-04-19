@@ -20,7 +20,7 @@ gh-fetch() {
   for n in $(hub issue -f '%I '); do
     hub issue show -f "# %t%n%n%b" $n > "$ISSUES_PATH/cache/$n.md"
 
-    if [ ! -e "$ISSUES_PATH/$n.md" ]; then
+    if [ "$1" = "-f" ] || [ ! -e "$ISSUES_PATH/$n.md" ]; then
       cp "$CACHE_PATH/$n.md" "$ISSUES_PATH/$n.md"
     fi
   done
@@ -84,9 +84,11 @@ gh-usage() {
 if [ -z "$1" ]; then
   gh-list
 else
-  case "$1" in
+  cmd="$1"
+  shift
+  case "$cmd" in
     "list"  ) gh-list;;
-    "fetch" ) gh-fetch;;
+    "fetch" ) gh-fetch $*;;
     "push"  ) gh-push;;
     "diff"  ) gh-diff;;
     *       ) gh-usage;;
