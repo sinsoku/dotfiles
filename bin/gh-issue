@@ -34,11 +34,10 @@ gh-push() {
     echo "$owner/$repo"
 
     for f in $(ls -p $ISSUES_PATH | grep -v / | sort -n --reverse); do
-      diff_res=$(diff "$CACHE_PATH/$f" "$ISSUES_PATH/$f")
+      diff "$CACHE_PATH/$f" "$ISSUES_PATH/$f"  > /dev/null 2>&1
 
       if [ $? -eq 1 ]; then
-        echo "$ISSUES_PATH/$f"
-        echo "$diff_res"
+        git diff --no-index "$CACHE_PATH/$f" "$ISSUES_PATH/$f"
 
         printf 'Push this changes [y,n]? '
         read yn
@@ -62,11 +61,10 @@ gh-push() {
 gh-diff() {
   if [ -e "$ISSUES_PATH" ]; then
     for f in $(ls -p $ISSUES_PATH | grep -v / | sort -n --reverse); do
-      diff_res=$(diff "$CACHE_PATH/$f" "$ISSUES_PATH/$f")
+      diff "$CACHE_PATH/$f" "$ISSUES_PATH/$f"  > /dev/null 2>&1
 
       if [ $? -eq 1 ]; then
-        echo "$ISSUES_PATH/$f"
-        echo "$diff_res"
+        git diff --no-index "$CACHE_PATH/$f" "$ISSUES_PATH/$f"
       fi
     done
   fi
