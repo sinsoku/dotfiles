@@ -18,7 +18,7 @@ gh-fetch() {
   fi
 
   for n in $(hub issue -f '%I '); do
-    hub issue show $n > "$ISSUES_PATH/cache/$n.md"
+    hub issue show -f "# %t%n%n%b" $n > "$ISSUES_PATH/cache/$n.md"
 
     if [ ! -e "$ISSUES_PATH/$n.md" ]; then
       cp "$CACHE_PATH/$n.md" "$ISSUES_PATH/$n.md"
@@ -28,7 +28,34 @@ gh-fetch() {
 
 gh-push() {
   if [ -e "$ISSUES_PATH" ]; then
-    echo 'TODO: push'
+    repo="${PWD##*/}"
+    repo_path="$(cd ..;pwd)"
+    owner="${repo_path##*/}"
+    echo "$owner/$repo"
+
+    for f in $(ls -p $ISSUES_PATH | grep -v / | sort -n --reverse); do
+      diff_res=$(diff "$CACHE_PATH/$f" "$ISSUES_PATH/$f")
+
+      if [ $? -eq 1 ]; then
+        echo "$ISSUES_PATH/$f"
+        echo "$diff_res"
+
+        printf 'Push this changes [y,n]? '
+        read yn
+        if [ $yn = 'y' ]; then
+          issue_number="${f%*.md}"
+          url="repos/$owner/$repo/issues/$issue_number"
+          title="$(head -n 1 "$ISSUES_PATH/$f" | cut -b 3-)"
+          body="$(tail -n +3 "$ISSUES_PATH/$f")"
+
+          echo '{}' | \
+            jq --arg title "$title" '.title = $title' | \
+            jq --arg body "$body" '.body = $body' | \
+            hub api -X PATCH $url --input -
+          cp "$ISSUES_PATH/$f" "$CACHE_PATH/$f"
+        fi
+      fi
+    done
   fi
 }
 
