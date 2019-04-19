@@ -1,0 +1,94 @@
+#!/bin/bash
+
+ISSUES_PATH=".github/issues"
+CACHE_PATH="$ISSUES_PATH/cache"
+
+gh-list() {
+  if [ -e "$ISSUES_PATH" ]; then
+    for f in $(ls -p $ISSUES_PATH | grep -v / | sort -n --reverse); do
+      printf '\e[32m%8s\e[m  ' "#${f%.*}"
+      head -n 1 "$ISSUES_PATH/$f" | cut -b 3-
+    done
+  fi
+}
+
+gh-fetch() {
+  if [ ! -e "$ISSUES_PATH" ]; then
+    mkdir -p "$CACHE_PATH"
+  fi
+
+  for n in $(hub issue -f '%I '); do
+    hub issue show -f "# %t%n%n%b" $n > "$ISSUES_PATH/cache/$n.md"
+
+    if [ "$1" = "-f" ] || [ ! -e "$ISSUES_PATH/$n.md" ]; then
+      cp "$CACHE_PATH/$n.md" "$ISSUES_PATH/$n.md"
+    fi
+  done
+}
+
+gh-push() {
+  if [ -e "$ISSUES_PATH" ]; then
+    repo="${PWD##*/}"
+    repo_path="$(cd ..;pwd)"
+    owner="${repo_path##*/}"
+    echo "$owner/$repo"
+
+    for f in $(ls -p $ISSUES_PATH | grep -v / | sort -n --reverse); do
+      diff "$CACHE_PATH/$f" "$ISSUES_PATH/$f"  > /dev/null 2>&1
+
+      if [ $? -eq 1 ]; then
+        git diff --no-index "$CACHE_PATH/$f" "$ISSUES_PATH/$f"
+
+        printf 'Push this changes [y,n]? '
+        read yn
+        if [ $yn = 'y' ]; then
+          issue_number="${f%*.md}"
+          url="repos/$owner/$repo/issues/$issue_number"
+          title="$(head -n 1 "$ISSUES_PATH/$f" | cut -b 3-)"
+          body="$(tail -n +3 "$ISSUES_PATH/$f")"
+
+          echo '{}' | \
+            jq --arg title "$title" '.title = $title' | \
+            jq --arg body "$body" '.body = $body' | \
+            hub api -X PATCH $url --input -
+          cp "$ISSUES_PATH/$f" "$CACHE_PATH/$f"
+        fi
+      fi
+    done
+  fi
+}
+
+gh-diff() {
+  if [ -e "$ISSUES_PATH" ]; then
+    for f in $(ls -p $ISSUES_PATH | grep -v / | sort -n --reverse); do
+      diff "$CACHE_PATH/$f" "$ISSUES_PATH/$f"  > /dev/null 2>&1
+
+      if [ $? -eq 1 ]; then
+        git diff --no-index "$CACHE_PATH/$f" "$ISSUES_PATH/$f"
+      fi
+    done
+  fi
+}
+
+gh-usage() {
+  echo 'usage: gh-issue <command>'
+  echo
+  echo '  list   Display issues in local'
+  echo '  fetch  Fetch issues from GitHub to local'
+  echo '  push   Push issues from local to GitHub'
+  echo '  diff   Display diff between GitHub and local'
+}
+
+if [ -z "$1" ]; then
+  gh-list
+else
+  cmd="$1"
+  shift
+  case "$cmd" in
+    "list"  ) gh-list;;
+    "fetch" ) gh-fetch $*;;
+    "push"  ) gh-push;;
+    "diff"  ) gh-diff;;
+    *       ) gh-usage;;
+  esac
+fi
