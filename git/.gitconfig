@@ -37,7 +37,7 @@
   lg = log --oneline --graph --decorate -20
   lge = !PAGER=emojify git log --oneline --graph --decorate -20 --color
   ls = log --stat -p -1
-  ps = push
+  ps = push --set-upstream
   rb = rebase
   rbh = rebase HEAD
   rbo = rebase --onto
