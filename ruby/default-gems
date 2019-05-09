@@ -1,3 +1,4 @@
+bundler >=2
 travis
-rails
+rails --pre
 webpacker
