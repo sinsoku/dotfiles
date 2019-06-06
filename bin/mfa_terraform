@@ -1,33 +1,3 @@
 #!/bin/bash
 
-set -e
-
-# It generates json referring to the processing of `AssumeRoleCredentialFetcher` and `_create_cache_key`.
-#
-# memo:
-#   * https://github.com/boto/botocore/blob/1.12.162/botocore/credentials.py#L611
-#   * https://github.com/boto/botocore/blob/1.12.162/botocore/credentials.py#L690-L692
-ROLE_ARGS=$(cat - << EOS
-{"RoleArn": "$(aws configure get role_arn)", "SerialNumber": "$(aws configure get mfa_serial)"}
-EOS
-)
-CACHE_KEY=$(echo -n "$ROLE_ARGS" | openssl sha1)
-CACHE_PATH="$HOME/.aws/cli/cache/$CACHE_KEY.json"
-
-if [ -e "$CACHE_PATH" ]; then
-  EXPIRATION=$(cat "$CACHE_PATH" | jq --raw-output .Credentials.Expiration)
-  EXPIRATION_UNIX=$(date -u -jf %FT%TZ  $EXPIRATION +%s)
-  NOW_UNIX=$(date +%s)
-
-  if [ $EXPIRATION_UNIX -lt $NOW_UNIX ]; then
-    aws sts get-caller-identity > /dev/null
-  fi
-else
-  aws sts get-caller-identity > /dev/null
-fi
-
-export AWS_ACCESS_KEY_ID=$(cat $CACHE_PATH | jq -r .Credentials.AccessKeyId)
-export AWS_SECRET_ACCESS_KEY=$(cat $CACHE_PATH | jq -r .Credentials.SecretAccessKey)
-export AWS_SESSION_TOKEN=$(cat $CACHE_PATH | jq -r .Credentials.SessionToken)
-
-terraform $*
+mfa terraform $*
