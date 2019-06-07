@@ -8,10 +8,21 @@ set -e
 #   * https://github.com/boto/botocore/blob/1.12.162/botocore/credentials.py#L611
 #   * https://github.com/boto/botocore/blob/1.12.162/botocore/credentials.py#L690-L692
 ROLE_ARGS=$(cat - << EOS
-{"RoleArn": "$(aws configure get role_arn)", "SerialNumber": "$(aws configure get mfa_serial)"}
+{
+  "RoleArn": "$(aws configure get role_arn)",
+  "SerialNumber": "$(aws configure get mfa_serial)"
+}
 EOS
 )
-CACHE_KEY=$(echo -n "$ROLE_ARGS" | openssl sha1)
+CREATE_CACHE_KEY=$(cat - << EOS
+import sys, os, json;
+from hashlib import sha1;
+args = json.load(sys.stdin);
+hash = sha1(json.dumps(args, sort_keys=True)).hexdigest();
+print hash.replace(':', '_').replace(os.path.sep, '_').replace('/', '_');
+EOS
+)
+CACHE_KEY=$(echo -n "$ROLE_ARGS" | python -c "$CREATE_CACHE_KEY")
 CACHE_PATH="$HOME/.aws/cli/cache/$CACHE_KEY.json"
 
 if [ -e "$CACHE_PATH" ]; then
