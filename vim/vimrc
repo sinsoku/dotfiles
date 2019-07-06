@@ -4,7 +4,6 @@ Plug 'scrooloose/syntastic'
 Plug 'thinca/vim-visualstar'
 Plug 'tomtom/tcomment_vim'
 Plug 'vim-jp/vimdoc-ja'
-Plug 'hashivim/vim-terraform'
 
 " lang
 Plug 'elixir-lang/vim-elixir'
