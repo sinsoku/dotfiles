@@ -15,7 +15,7 @@ Plug 'chr4/nginx.vim'
 Plug 'leafgarland/typescript-vim'
 
 " colorscheme
-Plug 'rainux/vim-desert-warm-256'
+Plug 'lifepillar/vim-solarized8'
 call plug#end()
 
 set helplang=ja
@@ -47,7 +47,7 @@ function! s:highlight_settings()
     execute "highlight " . name . " ctermfg=231 ctermbg=none"
   endfor
 endfunction
-colorscheme desert-warm-256
+colorscheme solarized8
 
 " visualstar
 nnoremap * *N
