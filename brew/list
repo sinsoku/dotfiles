@@ -18,6 +18,7 @@ icu4c
 ilmbase
 imagemagick@6
 jpeg
+jpegoptim
 jq
 libde265
 libffi
@@ -36,6 +37,7 @@ oniguruma
 openexr
 openjpeg
 openssl
+optipng
 pcre
 pcre2
 peco
