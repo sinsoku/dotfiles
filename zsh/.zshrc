@@ -6,7 +6,8 @@ export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 # theme
-zplug 'themes/sorin', from:oh-my-zsh
+zplug mafredri/zsh-async, from:github
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
 # plugins
 zplug "b4b4r07/emoji-cli"
