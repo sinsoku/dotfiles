@@ -5,6 +5,7 @@ aws-sam-cli
 awscli
 cairo
 circleci
+cmake
 direnv
 emojify
 ffmpeg
@@ -40,6 +41,7 @@ libbluray
 libde265
 libevent
 libffi
+libgit2
 libheif
 libidn2
 libogg
@@ -48,6 +50,7 @@ libpng
 libsamplerate
 libsndfile
 libsoxr
+libssh2
 libtasn1
 libtiff
 libtool
