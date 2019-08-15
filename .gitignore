@@ -1,3 +1,4 @@
 .envrc
 .vagrant
 playbook.retry
+.irb_history
