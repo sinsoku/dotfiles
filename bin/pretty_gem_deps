@@ -9,6 +9,7 @@
 
 class DepLine
   OPERATOR = '~>'.freeze
+  PATTERN = /(\d+)\.?/.freeze
 
   def initialize(str)
     @str = str
@@ -24,7 +25,7 @@ class DepLine
 
   def expanded_versions
     version_part = str[operator_pos..-1]
-    version = version_part.scan(/\d/).join('.')
+    version = version_part.scan(PATTERN).flatten.join('.')
     lt = "#{version[0...-1]}#{version[-1].next}"
 
     [">= #{version}", "< #{lt}"].map { |v| "#{quote}#{v}#{quote}" }
