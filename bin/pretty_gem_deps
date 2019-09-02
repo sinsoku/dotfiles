@@ -5,7 +5,7 @@
 # == Examples
 #
 # $ echo "gem 'rails', '~> 5.2.0'" | pretty_gem_deps
-# gem 'rails, '>= 5.2.0', '< 5.2.1' # pretty_gem_deps: gem 'rails', '~> 5.2.0'
+# gem 'rails, '>= 5.2.0', '< 5.3' # pretty_gem_deps: gem 'rails', '~> 5.2.0'
 
 class DepLine
   OPERATOR = '~>'.freeze
@@ -26,7 +26,7 @@ class DepLine
   def expanded_versions
     version_part = str[operator_pos..-1]
     version = version_part.scan(PATTERN).flatten.join('.')
-    lt = "#{version[0...-1]}#{version[-1].next}"
+    lt = Gem::Version.new(version).bump
 
     [">= #{version}", "< #{lt}"].map { |v| "#{quote}#{v}#{quote}" }
   end
