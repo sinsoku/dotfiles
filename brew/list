@@ -24,6 +24,7 @@ glib
 gmp
 gnutls
 graphite2
+grip
 harfbuzz
 heroku
 heroku-node
