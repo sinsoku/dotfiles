@@ -71,6 +71,7 @@ opencore-amr
 openexr
 openjpeg
 openssl
+openssl@1.1
 optipng
 opus
 p11-kit
