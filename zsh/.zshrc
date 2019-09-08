@@ -7,7 +7,6 @@ source $ZPLUG_HOME/init.zsh
 
 # theme
 zplug mafredri/zsh-async, from:github
-zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
 # plugins
 zplug "b4b4r07/emoji-cli"
@@ -53,6 +52,9 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# starship
+eval "$(starship init zsh)"
 
 # travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
