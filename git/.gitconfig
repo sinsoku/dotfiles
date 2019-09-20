@@ -58,6 +58,8 @@
 [commit]
   gpgsign = true
   cleanup = scissors
+[tag]
+  gpgSign = true
 [fetch]
   prune = true
 [mergetool]
