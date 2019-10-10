@@ -1,4 +1,3 @@
 bundler >=2
-travis
 rails --pre
 webpacker
