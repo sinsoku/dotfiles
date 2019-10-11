@@ -17,7 +17,7 @@
   cia = commit --amend
   cih = commit --amend -C @
   cif = commit --fixup
-  ci-empty = commit --allow-empty -m '[ci skip] empty'
+  ci-wip = commit --allow-empty -m '[ci skip] wip'
   ci-reset-time = commit --amend -C @ --date=now
   cl = clean
   cpick = cherry-pick
