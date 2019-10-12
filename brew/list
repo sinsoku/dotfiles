@@ -93,6 +93,8 @@ rtmpdump
 rubberband
 ruby
 ruby-build
+rust
+rustc-completion
 sdl2
 shared-mime-info
 snappy
