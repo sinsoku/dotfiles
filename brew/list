@@ -56,8 +56,10 @@ libtasn1
 libtiff
 libtool
 libunistring
+libvidstab
 libvorbis
 libvpx
+libxml2
 libyaml
 libzip
 little-cms2
