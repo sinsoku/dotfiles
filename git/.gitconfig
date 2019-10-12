@@ -46,7 +46,7 @@
   rsh = reset --hard
   rv = revert --no-edit
   sh = show
-  st = status
+  st = status --short
   show-branch-description = "!f(){ git config branch.$(git rev-parse --abbrev-ref ${1:-@}).description;};f"
   # 今日やったこと
   today = !git log --all --oneline --graph --decorate --since=yesterday --author=`git config user.name`
@@ -70,7 +70,6 @@
   autosquash = true
   autoStash = true
 [status]
-  short = true
   branch = true
 [include]
   path = ~/.gitconfig_private
