@@ -1,6 +1,6 @@
 # zmodload zsh/zprof && zprof
 
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/.cargo/bin:$PATH
 
 # Address issues installing on macOS Catalina
 #
