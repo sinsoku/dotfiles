@@ -45,6 +45,7 @@ libevent
 libffi
 libgit2
 libheif
+libidn
 libidn2
 libogg
 libomp
@@ -87,6 +88,7 @@ pixman
 pkg-config
 postgresql
 ppsspp
+protobuf
 python
 rbenv
 readline
@@ -94,8 +96,8 @@ rtmpdump
 rubberband
 ruby
 ruby-build
-rust
 rustc-completion
+rustup-init
 sdl2
 shared-mime-info
 snappy
