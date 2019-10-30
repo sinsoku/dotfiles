@@ -13,6 +13,7 @@ Plug 'moro/vim-review'
 Plug 'udalov/kotlin-vim'
 Plug 'chr4/nginx.vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'nono/vim-handlebars'
 
 " colorscheme
 Plug 'lifepillar/vim-solarized8'
