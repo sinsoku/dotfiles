@@ -103,5 +103,8 @@ autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 " ruby を ruby シンタックスにする
 autocmd BufRead,BufNewFile *.ruby set filetype=ruby
 
+" tsx を typescript シンタックスにする
+autocmd BufRead,BufNewFile *.tsx set filetype=typescript
+
 " vim-terraform
 let g:terraform_fmt_on_save = 1
