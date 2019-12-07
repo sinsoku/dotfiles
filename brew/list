@@ -6,6 +6,7 @@ awscli
 cairo
 circleci
 cmake
+dip
 direnv
 emojify
 ffmpeg
@@ -89,6 +90,7 @@ pkg-config
 postgresql
 ppsspp
 protobuf
+protobuf@3.7
 python
 rbenv
 readline
