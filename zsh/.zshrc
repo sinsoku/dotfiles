@@ -13,7 +13,7 @@ zplug "b4b4r07/emoji-cli"
 zplug "mollifier/cd-gitroot"
 zplug "plugins/bundler", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "b4b4r07/enhancd", use:init.sh, at:v2.2.3
+zplug "b4b4r07/enhancd", use:init.sh
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
