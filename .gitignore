@@ -2,3 +2,4 @@
 .vagrant
 playbook.retry
 .irb_history
+*.log

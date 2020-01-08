@@ -1,0 +1,1 @@
+short:-G	long:--ghq	desc:List ghq list	func:__enhancd::custom::sources::ghq_smart	condition:
