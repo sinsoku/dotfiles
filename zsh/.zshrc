@@ -66,3 +66,7 @@ export ENHANCD_FILTER=peco
 if (which zprof > /dev/null 2>&1) ;then
   zprof
 fi
+
+# history
+setopt hist_ignore_dups
+setopt share_history
