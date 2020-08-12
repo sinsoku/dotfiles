@@ -56,6 +56,9 @@ eval "$(direnv hook zsh)"
 # starship
 eval "$(starship init zsh)"
 
+# aws-vault
+eval "$(aws-vault --completion-script-zsh)"
+
 # travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
