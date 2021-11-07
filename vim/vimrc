@@ -100,8 +100,9 @@ autocmd BufRead,BufNewFile *.ect set filetype=html
 " Vagrantfile を Ruby シンタックスにする
 autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 
-" ruby を ruby シンタックスにする
+" ruby, rbs を ruby シンタックスにする
 autocmd BufRead,BufNewFile *.ruby set filetype=ruby
+autocmd BufRead,BufNewFile *.rbs set filetype=ruby
 
 " tsx を typescript シンタックスにする
 autocmd BufRead,BufNewFile *.tsx set filetype=typescript
