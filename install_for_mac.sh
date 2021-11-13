@@ -30,6 +30,3 @@ vim -c PlugInstall
 
 # bin
 ln -fs ${shell_path}/bin ~/
-
-# refs: https://github.com/brianmario/mysql2/issues/1005#issuecomment-488432274
-sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
