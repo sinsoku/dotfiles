@@ -26,6 +26,7 @@ ln -fs ${shell_path}/ruby/default-gems ~/.rbenv/
 # vim
 [ -d ~/.vim ] || mkdir ~/.vim
 ln -fs ${shell_path}/vim/vimrc ~/.vim/
+[ -d ~/.vim/autoload/plug.vim ] || curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c PlugInstall
 
 # bin
