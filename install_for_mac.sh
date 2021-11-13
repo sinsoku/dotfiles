@@ -17,9 +17,9 @@ ln -fs ${shell_path}/ruby/.rspec ~/
 
 # rbenv
 [ -d ~/.rbenv ] || mkdir ~/.rbenv
-# mkdir -p $(rbenv root)/plugins/
-# ln -fs $(ghq root)/github.com/rbenv/rbenv-each $(rbenv root)/plugins/
-# ln -fs $(ghq root)/github.com/rbenv/rbenv-default-gems $(rbenv root)/plugins/
+mkdir -p $(rbenv root)/plugins/
+ln -fs $(ghq root)/github.com/rbenv/rbenv-each $(rbenv root)/plugins/
+ln -fs $(ghq root)/github.com/rbenv/rbenv-default-gems $(rbenv root)/plugins/
 # ln -fs $(ghq root)/github.com/amatsuda/gem-src $(rbenv root)/plugins/
 ln -fs ${shell_path}/ruby/default-gems ~/.rbenv/
 
