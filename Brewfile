@@ -81,3 +81,4 @@ cask "1password-cli"
 cask "zoom"
 
 mas "Xcode", id: 497799835
+mas "Twitter", id: 1482454543
