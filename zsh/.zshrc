@@ -39,6 +39,11 @@ alias l="ls -G"
 alias ll="ls -alG"
 alias vi="vim"
 alias aws-whoami="aws sts get-caller-identity --output text --query Arn"
+alias dc-build="docker compose build"
+alias dc-up="docker compose up"
+alias dc-down="docker compose down"
+alias dc-run="docker compose run"
+alias dc-exec="docker compose exec"
 
 # colors
 autoload -Uz colors
