@@ -82,3 +82,6 @@ cask "zoom"
 
 mas "Xcode", id: 497799835
 mas "Twitter", id: 1482454543
+mas "Be Focused Pro", id: 961632517
+mas "Keynote", id: 409183694
+mas "LINE", id: 539883307
