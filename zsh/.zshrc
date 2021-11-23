@@ -70,3 +70,10 @@ fi
 # history
 setopt hist_ignore_dups
 setopt share_history
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
