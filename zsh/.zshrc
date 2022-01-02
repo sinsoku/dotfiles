@@ -82,3 +82,6 @@ if type brew &>/dev/null; then
   autoload -Uz compinit
   compinit
 fi
+
+# Laravel
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
