@@ -2,31 +2,31 @@
   "entries": {
     "tap": {
       "aws/tap": {
-        "revision": "5c54596e97937e5ff2d515f159438bb65bce1c84"
+        "revision": "039f75e114dec31154d021d5cd198408857208c1"
       },
       "heroku/brew": {
         "revision": "4f0741f30dad94ae97bc5eefbc8d4e905e65099b"
       },
       "homebrew/bundle": {
-        "revision": "48497882863432d8f0bd7dd6727df325a0f00b35"
+        "revision": "8ec900f210c925f4b4731b0f359b0808ca132285"
       },
       "homebrew/cask": {
-        "revision": "169ccf6b781afe5390844e2d72df9da7f28c10c7"
+        "revision": "88febe2098abd29cafddae17a1e994e69e160c1a"
       },
       "homebrew/cask-fonts": {
-        "revision": "7cbfd3169028ddcf26987436ed039b62caabb993"
+        "revision": "85239d934569154a2e4c754125b9727d17804d01"
       },
       "homebrew/cask-versions": {
-        "revision": "f3c3444b7a663d6e41b196de7cc981ce813be228"
+        "revision": "27c7d2d9c4b4d51f111cbaffefb3ebb51a64898f"
       },
       "homebrew/core": {
-        "revision": "8054392a5d5609849b8492a97597fe16692a30a6"
+        "revision": "8c0a50d123ffc138a2f2bf8ea843b202b14abcfb"
       },
       "homebrew/services": {
-        "revision": "0b653a3102b15789885b5d4fdb38b0930a8fd342"
+        "revision": "b167b4279698e0bbf1a00a81bd9c209cbf9bab69"
       },
       "homebrew/test-bot": {
-        "revision": "1620ae16cd79690c03eb5a1c3f25c9beb4eea7e8"
+        "revision": "ff6bed69c88738770a2bff91b13da1c67f232c3f"
       },
       "sinsoku/tap": {
         "revision": "1ba852b4d64dfaf20c7a0e00b2a8860f0e119c11"
@@ -2168,7 +2168,7 @@
         }
       },
       "google-chrome": {
-        "version": "103.0.5060.114",
+        "version": "103.0.5060.134",
         "options": {
           "full_name": "google-chrome"
         }
@@ -2258,7 +2258,7 @@
         }
       },
       "visual-studio-code": {
-        "version": "1.69.1",
+        "version": "1.69.2",
         "options": {
           "full_name": "visual-studio-code"
         }
@@ -2276,7 +2276,7 @@
         }
       },
       "zoom": {
-        "version": "5.11.1.8356",
+        "version": "5.11.3.9065",
         "options": {
           "full_name": "zoom"
         }
@@ -2344,9 +2344,9 @@
   "system": {
     "macos": {
       "monterey": {
-        "HOMEBREW_VERSION": "3.5.4",
+        "HOMEBREW_VERSION": "3.5.5",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "8054392a5d5609849b8492a97597fe16692a30a6",
+        "Homebrew/homebrew-core": "8c0a50d123ffc138a2f2bf8ea843b202b14abcfb",
         "CLT": "13.3.0.0.1.1645755326",
         "Xcode": "13.4.1",
         "macOS": "12.3"
