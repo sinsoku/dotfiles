@@ -79,6 +79,7 @@ cask "synergy"
 cask "1password"
 cask "1password-cli"
 cask "zoom"
+cask "session-manager-plugin"
 
 mas "Xcode", id: 497799835
 mas "Twitter", id: 1482454543
