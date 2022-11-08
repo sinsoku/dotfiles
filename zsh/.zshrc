@@ -85,3 +85,5 @@ fi
 
 # Laravel
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+
+alias cd-ghq='cd $(ghq list -p | peco)'
