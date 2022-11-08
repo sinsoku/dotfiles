@@ -3,6 +3,7 @@
 shell_path=$(cd $(dirname $0);pwd)
 
 # zsh
+ln -fs ${shell_path}/zsh/.zprofile ~/
 ln -fs ${shell_path}/zsh/.zshrc ~/
 ln -fs ${shell_path}/zsh/.zshenv ~/
 
