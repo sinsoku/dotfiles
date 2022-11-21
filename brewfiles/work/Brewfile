@@ -31,6 +31,8 @@ brew "yarn"
 brew "zplug"
 brew "zsh"
 brew "zsh-completions"
+brew "kayac/tap/ecspresso"
+brew "Songmu/tap/ecschedule"
 
 cask "1password"
 cask "1password-cli"
