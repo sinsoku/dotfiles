@@ -3,6 +3,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 
+brew "aws-google-auth"
 brew "awscli"
 brew "direnv"
 brew "emojify"
