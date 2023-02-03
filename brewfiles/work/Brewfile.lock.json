@@ -5,13 +5,13 @@
         "revision": "6f418bc7b41d9fef9ab85c47ed776ab13738cdfe"
       },
       "homebrew/cask": {
-        "revision": "e0c71f44c989b34c11525b6bc94a6afc7f342612"
+        "revision": "e145f7f2739408f39bd494b750612e2f7fa52ed8"
       },
       "homebrew/cask-fonts": {
         "revision": "6b3397a7f78c21ee7003277e395c742bff2f8cc0"
       },
       "homebrew/core": {
-        "revision": "24f9583bcf4f47c5ba998f112e4f2779d36e0bf4"
+        "revision": "d45a9f564d7796f354eca477e7f02938f0b2128d"
       }
     },
     "brew": {
@@ -1422,6 +1422,12 @@
         "options": {
           "full_name": "deckset"
         }
+      },
+      "skitch": {
+        "version": "2.9,265157",
+        "options": {
+          "full_name": "skitch"
+        }
       }
     }
   },
@@ -1438,7 +1444,7 @@
       "ventura": {
         "HOMEBREW_VERSION": "3.6.20",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "24f9583bcf4f47c5ba998f112e4f2779d36e0bf4",
+        "Homebrew/homebrew-core": "d45a9f564d7796f354eca477e7f02938f0b2128d",
         "CLT": "14.1.0.0.1.1666437224",
         "Xcode": "14.1",
         "macOS": "13.0"
