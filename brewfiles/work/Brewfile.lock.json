@@ -1445,9 +1445,9 @@
         "HOMEBREW_VERSION": "3.6.20",
         "HOMEBREW_PREFIX": "/opt/homebrew",
         "Homebrew/homebrew-core": "d45a9f564d7796f354eca477e7f02938f0b2128d",
-        "CLT": "14.1.0.0.1.1666437224",
+        "CLT": "14.2.0.0.1.1668646533",
         "Xcode": "14.1",
-        "macOS": "13.0"
+        "macOS": "13.2.1"
       }
     }
   }
