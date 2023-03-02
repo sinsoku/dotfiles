@@ -15,10 +15,10 @@
   cf = cat-file -p
   ci = commit
   cia = commit --amend
-  cih = commit --amend -C @
+  cih = commit --amend --no-edit
   cif = commit --fixup
   ci-wip = commit --allow-empty -m '[ci skip] wip'
-  ci-reset-time = commit --amend -C @ --date=now
+  ci-reset-time = commit --amend --no-edit --date=now
   cl = clean
   cpick = cherry-pick
   co = checkout
