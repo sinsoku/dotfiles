@@ -5,6 +5,7 @@ tap "homebrew/core"
 
 brew "aws-google-auth"
 brew "awscli"
+brew "devcontainer"
 brew "direnv"
 brew "dive"
 brew "emojify"
