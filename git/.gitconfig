@@ -51,9 +51,9 @@
   find-merged = "!f() { git bisect start --no-checkout --first-parent $1 $2 > /dev/null 2>&1; git bisect run sh -c \"! git merge-base --is-ancestor $2 BISECT_HEAD\" > /dev/null 2>&1; git rev-parse BISECT_HEAD; git bisect reset;};f"
   find-pr = "!f(){ gh api /repos/:owner/:repo/commits/$1/pulls -H 'Accept: application/vnd.github.groot-preview+json' | jq -r '.[].number';};f"
   # 今日やったこと
-  today = !git log --all --oneline --graph --decorate --since=yesterday --author=`git config user.name`
+  today = !git log --all --oneline --graph --decorate --since=yesterday --author=\"$(git config user.name)\"
   # 今週やったこと
-  week = !git log --all --oneline --graph --decorate --since=1_week_ago --author=`git config user.name`
+  week = !git log --all --oneline --graph --decorate --since=1_week_ago --author=\"$(git config user.name)\"
   # clean-br
   clean-br = !git branch -d `git branch --merged master | grep -v master`
   vimp = !git ls-files | peco | xargs -o vim
