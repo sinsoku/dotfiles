@@ -1,4 +1,3 @@
 bundler >=2
 rails --pre
-webpacker
 keycutter
