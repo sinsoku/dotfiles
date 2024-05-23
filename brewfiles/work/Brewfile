@@ -1,7 +1,6 @@
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "homebrew/core"
+tap "tufin/homebrew-tufin"
 
 brew "aws-google-auth"
 brew "awscli"
@@ -42,6 +41,7 @@ brew "zsh"
 brew "zsh-completions"
 brew "kayac/tap/ecspresso"
 brew "Songmu/tap/ecschedule"
+brew "oasdiff"
 
 cask "1password"
 cask "1password-cli"
