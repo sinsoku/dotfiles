@@ -1,0 +1,7 @@
+background-opacity = 0.9
+theme = GitHub Dark
+font-family = FiraCode
+font-feature = -calt, -liga, -dlig
+macos-non-native-fullscreen = visible-menu
+macos-titlebar-style = tabs
+keybind = global:cmd+q=toggle_quick_terminal
