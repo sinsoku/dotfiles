@@ -49,11 +49,8 @@ alias dc-exec="docker compose exec"
 autoload -Uz colors
 colors
 
-# rbenv
-eval "$(rbenv init -)"
-
-# nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+# mise
+eval "$(mise activate zsh)"
 
 # direnv
 eval "$(direnv hook zsh)"
@@ -87,3 +84,8 @@ fi
 alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
 
 alias cd-ghq='cd $(ghq list -p | peco)'
+
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
+
+export GPG_TTY=$(tty)
