@@ -8,7 +8,7 @@
 [user]
   name = Takumi Shotoku
   email = sinsoku.listy@gmail.com
-  signingkey = 92BA66D80B19ADF2
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICT/eNZ/XpxYM4wGpdWrZzwG57grI5VMoe43YCNeQaVw
 [alias]
   ad = add
   br = branch
@@ -79,3 +79,7 @@
 	noprefix = true
 [init]
 	defaultBranch = main
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
