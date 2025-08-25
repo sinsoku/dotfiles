@@ -5,3 +5,4 @@ font-feature = -calt, -liga, -dlig
 macos-non-native-fullscreen = visible-menu
 macos-titlebar-style = tabs
 keybind = global:cmd+q=toggle_quick_terminal
+keybind = shift+enter=text:\n
