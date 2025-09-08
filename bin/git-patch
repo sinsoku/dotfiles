@@ -1,4 +1,0 @@
-#!/bin/bash
-
-ls ~/ghq/github.com/*/*/.git/refs/heads/patch/*
-grep refs/heads/patch ~/ghq/github.com/*/*/.git/info/refs

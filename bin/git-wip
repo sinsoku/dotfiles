@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ls ~/ghq/github.com/*/*/.git/refs/heads/wip/*
+grep refs/heads/wip ~/ghq/github.com/*/*/.git/info/refs
