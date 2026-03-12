@@ -1,6 +1,46 @@
 {
+  "attribution": {
+    "commit": ""
+  },
+  "permissions": {
+    "allow": [
+      "Bash(gh issue list*)",
+      "Bash(gh issue view*)",
+      "Bash(gh issue status*)",
+      "Bash(gh pr list*)",
+      "Bash(gh pr view*)",
+      "Bash(gh pr status*)",
+      "Bash(gh pr checks*)",
+      "Bash(gh pr diff*)",
+      "Bash(gh repo view*)",
+      "Bash(gh repo list*)",
+      "Bash(gh release list*)",
+      "Bash(gh release view*)",
+      "Bash(gh run list*)",
+      "Bash(gh run view*)",
+      "Bash(gh workflow list*)",
+      "Bash(gh workflow view*)",
+      "Bash(gh search*)",
+      "Bash(gh gist list*)",
+      "Bash(gh gist view*)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(git status*)",
+      "Bash(git show*)",
+      "Bash(bundle list*)",
+      "Bash(bundle info*)",
+      "Bash(ruby -v*)",
+      "Bash(node -v*)",
+      "Bash(yarn --version*)",
+      "Bash(which *)",
+      "Bash(ls *)"
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "bun x ccusage statusline"
+  },
+  "enabledPlugins": {
+    "feature-dev@claude-plugins-official": true
   }
 }
