@@ -40,6 +40,7 @@
     "type": "command",
     "command": "bun x ccusage statusline"
   },
+  "alwaysThinkingEnabled": true,
   "enabledPlugins": {
     "feature-dev@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true
