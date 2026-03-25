@@ -43,7 +43,8 @@
   "enabledPlugins": {
     "feature-dev@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true,
-    "slack@claude-plugins-official": true
+    "slack@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true
 }
