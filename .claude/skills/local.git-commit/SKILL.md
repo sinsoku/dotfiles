@@ -1,7 +1,6 @@
 ---
 name: local.git-commit
 description: gitコミットを作成する。ブランチ確認・ステージング・メッセージ生成を一括で行う。
-disable-model-invocation: true
 ---
 
 # /git-commit スキル
