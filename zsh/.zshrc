@@ -1,6 +1,9 @@
 # env
 export EDITOR=vim
 
+# Homebrew (re-run after path_helper to keep /opt/homebrew/bin ahead of /usr/bin)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # zplug
 export ZPLUG_HOME=$(brew --prefix)/opt/zplug
 source $ZPLUG_HOME/init.zsh
