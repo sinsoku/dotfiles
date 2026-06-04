@@ -14,9 +14,13 @@
 [ "$1" = "prepared" ] || exit 0
 
 zero="0000000000000000000000000000000000000000"
-while read -r _ new ref; do
+while read -r old new ref; do
   case "$ref" in refs/issues/*) ;; *) continue ;; esac
   [ "$new" = "$zero" ] || continue
+  # Allow pack-refs cleanup: if the ref still resolves to the same SHA
+  # (via packed-refs), only the loose copy is being removed.
+  packed=$(git rev-parse --verify --quiet "$ref" 2>/dev/null)
+  [ "$packed" = "$old" ] && continue
   echo "reference-transaction: refusing to delete $ref" >&2
   echo "  Bypass: git -c core.hooksPath=/dev/null <command>" >&2
   exit 1
