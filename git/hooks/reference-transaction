@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# Protect refs/issues/* (git-native-issue data) from deletion.
+#
+# An explicit refspec fetch such as
+#   git fetch origin 'refs/issues/*:refs/issues/*'
+# under fetch.prune will wipe all local refs/issues/* if the remote does not
+# carry the namespace.
+#
+# Install: copy to your hooks directory (default: .git/hooks/) and chmod +x.
+# Bypass:  git -c core.hooksPath=/dev/null <command>
+# Requires Git 2.28+.
+
+[ "$1" = "prepared" ] || exit 0
+
+zero="0000000000000000000000000000000000000000"
+while read -r _ new ref; do
+  case "$ref" in refs/issues/*) ;; *) continue ;; esac
+  [ "$new" = "$zero" ] || continue
+  echo "reference-transaction: refusing to delete $ref" >&2
+  echo "  Bypass: git -c core.hooksPath=/dev/null <command>" >&2
+  exit 1
+done
+exit 0
