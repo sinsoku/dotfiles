@@ -102,3 +102,9 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
    eval `cat $HOME/.ssh/ssh-agent` > /dev/null
    ssh-add 2> /dev/null
 fi
+
+# Spec Kit
+export PATH="$HOME/.local/bin:$PATH"
+
+# Terraform Plugins Cache
+export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
