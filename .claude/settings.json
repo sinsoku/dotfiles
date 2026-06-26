@@ -37,5 +37,6 @@
     "pr-review-toolkit@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
-  "preferredNotifChannel": "terminal_bell"
+  "preferredNotifChannel": "terminal_bell",
+  "tui": "fullscreen"
 }
