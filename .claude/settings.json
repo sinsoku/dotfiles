@@ -9,6 +9,15 @@
       "Bash(gh gist list *)",
       "Bash(gh gist view *)",
       "Bash(git fetch *)",
+      "Bash(git diff:*)",
+      "Bash(git show:*)",
+      "Bash(git log:*)",
+      "Bash(git grep:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(git config get:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh repo view:*)",
       "Bash(bundle list *)",
       "Bash(bundle info *)",
       "Bash(ruby -v)",
@@ -24,7 +33,8 @@
     "feature-dev@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
-    "claude-md-management@claude-plugins-official": true
+    "claude-md-management@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
   "preferredNotifChannel": "terminal_bell"
