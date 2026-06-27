@@ -25,6 +25,11 @@
       "Bash(yarn --version)"
     ]
   },
+  "hooks": {
+    "PreToolUse": [
+      { "matcher": "Bash", "hooks": [{ "type": "command", "command": "$HOME/bin/block-redundant-cd.sh" }] }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "bun x ccusage statusline"
