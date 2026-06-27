@@ -3,3 +3,7 @@
 playbook.retry
 .irb_history
 *.log
+
+# crit
+.claude/skills/crit/
+.claude/skills/crit-cli/
