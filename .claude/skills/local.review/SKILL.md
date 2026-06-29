@@ -113,7 +113,7 @@ base を解決する（`--base` 指定値、無ければ `main`）。**差分計
 
 ルータ結果に基づきレビューを並列実行する:
 
-- **選定した全レンズ（communication ＋ 差分レンズ群）の Task call を1メッセージ内で同時発行**してから集約に進む（1本ずつ起動・待機しない。`run_in_background: true`）。
+- **選定した全レンズ（communication ＋ 差分レンズ群）を1メッセージ内で同時起動**し、各 **agentId を記録**する（1本ずつ起動・待機しない）。回収は 4-C。
 - **communication（4-A）は depth に依らず常時**、差分レンズ群（4-B）は深度連動。
 - 差分レンズの起動に気を取られて communication を飛ばさない。
 
@@ -161,11 +161,23 @@ base を解決する（`--base` 指定値、無ければ `main`）。**差分計
 6. 出力フォーマット: severity（critical/major/minor）別、`file:line`（head 版の実際の行番号）必須、推奨は**現状→修正後の最小コード例つき**
 7. **Edit/Write は使わない（レビュー専用）**
 
+### 4-C. 完了回収（`TaskOutput` でブロッキング同期回収・必須）
+
+全レンズ（4-A + 4-B）の **agentId** を記録し、各 agentId を **`TaskOutput(task_id, block=true, timeout)` で同期回収**してから STEP 5 へ。`task-notification` は欠落しうるため待たない。
+
+- TaskOutput 実行中は main が busy ＝ **idle にならず**、通知欠落・割り込みの影響を受けない。戻り値はそのレンズの最終メッセージ。
+- **並列性は保つ**: 全レンズを先に起動してから回収する。1本目の block 待ち中に他も進み、以降は即返る（総時間 ≒ 最長レンズ）。
+- `timeout` は最長レンズを賄う値（例 `600000`）。timeout したら「未回収」と記録し残りを続行（hang 回避）。
+- **`.output` は Read/tail しない**（transcript 全文が返り context を壊す）。結果は `TaskOutput` の戻り値で取る。
+- `TaskOutput` は DEPRECATED だが、idle を避け同期回収できる現状唯一の手段（通知 / `.output` 直読みはバグが多く不可）。
+
 ---
 
 ## STEP 5: 集約（帰属 → dedup → 検証 → severity 確定）
 
 **前提（満たさなければ集約に進まない）**: STEP 3 ルータ・communication レンズ（4-A）・差分レンズ群（4-B）がすべて実行済みであること。1つでも未実行なら戻って実行する。
+
+**結果の入力**: 4-C の `TaskOutput` が返した各レンズの最終メッセージを集約入力とする。timeout 未回収のレンズがあれば結果に明記する（黙って欠落させない）。
 
 `Collection → ★Attribution → Dedup → 刈り込み → Verification → Finalization`。詳細ルール（帰属の3分類・severity 物差し・実害の段階・確信度しきい値）は共通 REVIEW.md に従う。
 
@@ -194,3 +206,5 @@ base を解決する（`--base` 指定値、無ければ `main`）。**差分計
 - ローカルモードで `git fetch origin <base>` を省く（古い base で差分が混入）
 - ブランチ説明が無いのにユーザーに聞かず、タイトル・説明を推測する
 - 結果を PR に投稿する
+- レンズの完了を `task-notification` で待つ（通知は欠落しうる＝無限待機。4-C の `TaskOutput(block=true)` で同期回収する）
+- `.output`（subagent transcript）を Read/tail する（全文が返り context を壊す。結果は `TaskOutput` の戻り値で取る）
