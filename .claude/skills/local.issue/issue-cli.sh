@@ -8,9 +8,9 @@
 # 配置: ~/.claude/skills/local.issue/issue-cli.sh
 #
 # Usage:
-#   ~/.claude/skills/local.issue/issue-cli.sh create "title" -F tmp/issue-body.txt -l "high"
+#   ~/.claude/skills/local.issue/issue-cli.sh create "title" -F tmp/issue-body.txt -p high
 #   ~/.claude/skills/local.issue/issue-cli.sh comment <ID> -F tmp/issue-<ID>-solve.txt
-#   ~/.claude/skills/local.issue/issue-cli.sh state <ID> --state ready
+#   ~/.claude/skills/local.issue/issue-cli.sh edit <ID> -l ready
 
 set -euo pipefail
 

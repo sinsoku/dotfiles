@@ -3,17 +3,16 @@
 ## ブランチ
 - base: <省略時は origin の既定ブランチを自動検出。master 等なら明示する>
 
-## 情報源
-scan が巡回する情報源を有効化する。共通の Sentry / Datadog は
-`~/.claude/skills/local.issue-scan/sources/<名前>.md` のレシピを内包しているので、
-ここでは有効化＋パラメータだけ書けばよい。使わない例は削除してよい。
-- sentry: organization=<org>, project=<slug>, regionUrl=<https://...>, 期間=lastSeen:-24h
-- datadog: クエリ=status:error env:production, 閾値=<件/日>
-独自の情報源は、レシピをこの行にインラインで書く（重複検出のため fingerprint 規則を必ず含める）:
-- <名前>: tool=<MCP/CLI>, クエリ=<...>, 閾値=<...>, fingerprint=<名前>:<安定idの作り方>
-  例) notion: tool=mcp__notion__query, database=<id>, filter=status=未対応, fingerprint=notion:<page_id>
+## 調査の起点メモ
+<!-- スキルはこの節を読まない。人間と AI がセッションで情報源を調査する際の参考情報（自動巡回=scan は廃止済み）。 -->
+- sentry: org=<org>, project=<slug>, regionUrl=<https://...>
+- datadog: よく使うクエリ=status:error env:production, 閾値=<件/日>
+- 閾値の目安: <例: 24h で 10 件以上なら起票検討>
+<!-- fingerprint 安定 ID の作り方メモ（REFERENCE.md の fingerprint 規約を補完する位置づけ）。 -->
+<!-- 例: notion:<page_id> / sentry:<issue_id> -->
 
-重要度ラベル基準: high=<ユーザー影響大 or 高頻度>, low=<低頻度 or 冗長ログ>, なし=中（重複検出は全情報源 fingerprint で統一）
+## priority 基準
+critical=<即時対応> / high=<ユーザー影響大 or 高頻度> / low=<低頻度・冗長ログ> / 無指定=中
 
 ## triage 方針
 solve が「直す価値があるか」を判定する際の基準。
@@ -25,8 +24,8 @@ solve が「直す価値があるか」を判定する際の基準。
 ## lint/test
 solve / review が変更ファイルに走らせるコマンド（任意・無ければ空）。
 - lint: <例: bundle exec rubocop>
-- test: <例: bundle exec rspec（solve は実行をスキップしてよい）>
+- test: <例: bundle exec rspec（solve が変更に関連するテストを実行し、結果を PR 下書きに記録する）>
 
 ## 自己レビュー手段
-solve が修正後に使う自己レビューの手段（任意。無ければ REVIEW.md を観点に基本レビュー）。
+solve が修正後に使う変更品質レビューの手段（任意。無ければ REVIEW.md を観点に基本レビュー）。真因解消の検証は solve が独立エージェントで必ず行う（設定不要）。
 - review: <例: /local.review>

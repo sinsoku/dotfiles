@@ -6,9 +6,9 @@ argument-hint: "（引数なし。一括）"
 
 # local.issue-clean（worktree / ブランチ掃除）
 
-`closed` 済みの Issue に対応する worktree とブランチを削除する破壊的操作。
+`closed` の Issue に対応する worktree とブランチを削除する破壊的操作。
 
-**実行タイミング**: PR がマージされた後に実行する（review 承認直後はブランチを PR 作成で使うため）。未マージのブランチは下記の merged-only ガードで自動的に残るので、早めに実行しても安全。
+**実行タイミング**: PR がマージされた後に実行する（review 承認直後はブランチを PR 作成で使うため）。未マージのものは worktree・ブランチとも merged 判定ガードで残るので、早めに実行しても安全。
 
 最初に `~/.claude/skills/local.issue/REFERENCE.md` を読む。
 
@@ -28,16 +28,18 @@ git worktree list
 git issue ls --state closed --format oneline
 ```
 
-各 worktree のブランチ名は `<ID>-<slug>` なので、**先頭の `-` の前を Issue 短縮ID として取り出し**、その Issue の state を確認する（`git issue show <ID>`）。**closed の Issue に対応する worktree だけ**を削除候補とする（`ready` / `open` は残す）。ブランチ名に ID が埋まっているのでコメントを grep する必要はなく、確実に対応付く。
+各 worktree のブランチ名は `<ID>-<slug>` なので、**先頭の `-` の前を Issue 短縮ID として取り出し**、その Issue の state を確認する（`git issue show <ID>`）。**closed の Issue に対応する worktree だけ**を削除候補とする（`open` は ready / rework ラベルの有無に関わらず残す）。
 
-3. 各候補を削除:
+3. 各候補を削除（マージ判定が先):
 
 ```bash
+git merge-base --is-ancestor <ID>-<slug> origin/<base>
 git worktree remove <project_root>/.claude/worktrees/<ID>-<slug>
 git branch -d <ID>-<slug>
 ```
 
-- `git branch -d`（小文字）はマージ済みのみ削除する。**未マージなら警告して残す**（`-D` で強制削除しない）。
+- **マージ判定が偽（未マージ）なら worktree もブランチも削除しない**（closed 直後で PR 未作成・未マージの作業を守る。`<base>` は REFERENCE.md「ベースブランチ」の解決ルールに従う）。
+- `git branch -d`（小文字）はマージ済みのみ削除する。`-D` で強制削除しない。
 - worktree に未コミットの変更があって remove が拒否された場合も、強制削除せず警告して残す。
 
 4. 削除した worktree / ブランチの一覧と、残した（未マージ等）ものを報告する。

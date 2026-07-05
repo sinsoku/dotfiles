@@ -1,6 +1,6 @@
 ---
 name: local.issue-review
-description: ready な課題を1件、人間がレビューして承認(closed)か差し戻し(open)する人間ゲート。
+description: ready な課題を1件、人間がレビューして承認(closed)か差し戻し(rework)する人間ゲート。
 argument-hint: "[Issue ID | 省略時は ready 一覧から選択]"
 ---
 
@@ -12,11 +12,10 @@ argument-hint: "[Issue ID | 省略時は ready 一覧から選択]"
 
 ## STEP 0: 対象決定
 
-1. `$ARGUMENTS` に ID があればそれ。無ければ ready を**重要度順**で提示して選択を促す（high が埋もれないよう先に出す）:
+1. `$ARGUMENTS` に ID があればそれ。無ければ priority 降順で提示して選択を促す:
 
 ```bash
-git issue ls --state ready --label high --format oneline   # high を先頭に
-git issue ls --state ready --format oneline                # 残り
+git issue ls --state open --label ready --sort priority --format oneline
 ```
 2. `git issue show <ID>` で本文＋全コメント（solve の実装サマリ・過去フィードバック）を読む。コメントから solve の出口種別を判別する: **修正PR / wontfix推奨 / 人間判断（AI が修正を断念した場合を含む）**。
 
@@ -44,7 +43,8 @@ git diff <base>...<ID>-<slug>
 2. **差分サマリ**（--stat）
 3. **客観チェック（fact のみ）** — 該当があるものだけ強調表示する（指摘の無い観点は出さない）:
    - lint（config の lint コマンドを変更ファイルに実行）の結果
-   - 「確認したこと」に post-merge 項目（"デプロイ後""本番"等）が混入していないか
+   - PR 下書きに証拠欄（原因の因果チェーン・テスト結果・真因検証の結論）があるか。欠けていれば指摘
+   - 「証拠」に post-merge 項目（"デプロイ後""本番"等）が混入していないか（post-merge の確認事項は「未確認・リスク」へ）
    - 曖昧表現（"あれば""など""可能なら"）・自己評価語（"最小""網羅的"）の混入
    - PR 下書きの内容と実 diff の食い違い
    - **プロジェクト固有の観点**: `<project_root>/.claude/REVIEW.md`（あれば）を参照（特定のレビュースキルには依存しない）
@@ -53,7 +53,7 @@ git diff <base>...<ID>-<slug>
 
 ### wontfix推奨 / 人間判断（修正断念含む）の場合
 
-solve のコメント（理由・論点・断念したアプローチ）を要約して提示し、人間の判断を仰ぐ（config 読み込みは不要）。判定は通常どおり: 妥当なら wontfix で close、対応すべきなら feedback を付けて `--open`（solve が再挑戦／人間が手動対応）。
+solve のコメント（理由・論点・断念したアプローチ）を要約して提示し、人間の判断を仰ぐ（config 読み込みは不要）。判定は通常どおり: 妥当なら wontfix で close、対応すべきなら feedback を付けて rework ラベルで差し戻す（solve が再挑戦／人間が手動対応）。
 
 ## STEP 2: 判定
 
@@ -65,22 +65,22 @@ solve のコメント（理由・論点・断念したアプローチ）を要�
 git issue state <ID> --close --reason completed
 ```
 
-PR は作成しない。代わりに、**承認後に人間がそのまま実行できる PR 作成コマンドを提示**する（skill 自身は実行しない。`git config get` は1回だけ・タイトルは下書き1行目・本文は3行目以降を渡すのでタイトルが重複しない）:
+PR は作成しない。代わりに、**承認後に人間がそのまま実行できる PR 作成コマンドを提示**する（タイトルは下書き1行目・本文は3行目以降を渡すのでタイトルが重複しない）:
 
 ```bash
 b=<ID>-<slug>
 desc=$(git config get branch.$b.description)
-git -C <project_root>/.claude/worktrees/$b push -u origin $b
-gh pr create --head $b --title "$(head -1 <<<"$desc")" --body "$(sed '1,2d' <<<"$desc")"
+git push -u origin $b
+gh pr create --head $b --base <base> --title "$(head -1 <<<"$desc")" --body "$(sed '1,2d' <<<"$desc")"
 ```
 
 ### 却下（差し戻し）
 
-フィードバックを `tmp/issue-<ID>-review-feedback.txt` に Write し、open に戻す（solve が再処理する）。素の `git issue` は `-F` 非対応なので、コマンド文字列に `#` を含めないよう `$(cat ...)` でファイルから渡す（人間 identity で記録するためラッパー issue-cli.sh は使わない）:
+フィードバックを `tmp/issue-<ID>-review-feedback.txt` に Write し、rework ラベルで差し戻す（solve が再処理する）。素の `git issue` は `-F` 非対応なので、コマンド文字列に `#` を含めないよう `$(cat ...)` でファイルから渡す（人間 identity で記録するためラッパー issue-cli.sh は使わない）:
 
 ```bash
 git issue comment <ID> -m "$(cat tmp/issue-<ID>-review-feedback.txt)"
-git issue state <ID> --open
+git issue edit <ID> -l rework
 ```
 
 本文はトレーラー名（`State` 等）で始まる行を作らない（`## 見出し` 形式は可）。
@@ -106,3 +106,4 @@ git merge-base --is-ancestor <ID>-<slug> origin/<base>
 - AI の identity（issue-cli.sh）で close する（review は人間の判断記録。素の `git issue` を使う）
 - 指摘の無い観点まで「OK」と羅列する（指摘がある観点のみ表示）
 - push / PR 作成 / rebase を行う（このワークフローの責務外。承認後に人間が通常フローで実施）
+- `git issue edit --remove-label` を使う（v1.3.3 のバグで効かない）
