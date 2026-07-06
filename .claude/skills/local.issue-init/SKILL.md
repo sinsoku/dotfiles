@@ -33,4 +33,4 @@ argument-hint: "（引数なし）"
    "Bash(git rev-parse:*)", "Bash(git fetch:*)", "Bash(git worktree add:*)",
    "Write(tmp/**)"
    ```
-6. `issue-config.md` の各プレースホルダ（調査メモ・priority 基準・triage 方針・lint・自己レビュー手段）を埋めるようユーザーに促す。
+6. `issue-config.md` の各プレースホルダ（priority 基準・triage 方針・lint/test・自己レビュー手段）を埋めるようユーザーに促す。

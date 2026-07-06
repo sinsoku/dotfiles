@@ -1,6 +1,6 @@
 ---
 name: local.issue
-description: git-native-issue 課題ワークフローの入口。状況を把握して各工程スキルへ誘導する。課題の起票（1件〜複数件、セッションのコンテキスト対応）もここ。初期化は /local.issue-init。
+description: 「〜を起票して」で課題を起票（複数可・重複排除つき）。引数なしは状況把握と各工程への誘導。
 argument-hint: "[起票したい課題の概要・「見つかった課題を起票して」等 | 省略時は全体把握して誘導]"
 ---
 
@@ -92,7 +92,7 @@ REFERENCE.md を踏まえ、ユーザーの意図に応じて誘導する:
 - 人間レビュー → `/local.issue-review`
 - 後片付け → `/local.issue-clean`
 
-情報源の調査はこのセッションで直接行う（`issue-config.md` の調査メモを参考に）。課題が見つかったら起票モードへ（`/local.issue 見つかった課題を起票して` 等）。
+情報源（Sentry / Datadog 等）の調査はこのセッションで直接行う。課題が見つかったら起票モードへ（`/local.issue 見つかった課題を起票して` 等）。
 
 「high の open を要約して」のような ad-hoc な問い合わせは、REFERENCE.md の CLI（`git issue ls` / `show` / `search`）を使ってこの場で直接実行してよい。書き込みを伴う ad-hoc 操作は AI 操作なら `issue-cli.sh`、人間判断の記録なら素の `git issue` を使い分ける。
 

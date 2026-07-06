@@ -1,6 +1,6 @@
 ---
 name: local.issue-solve
-description: open な課題を調査・修正・PR下書きまで自走して ready にする。ID 指定で1件、引数なしで open を priority 順にバッチ処理。
+description: 「この課題を直して」で open な課題を修正〜PR下書きまで自走し ready に。引数なしは priority 順バッチ。
 argument-hint: "[Issue ID | 省略時は open を priority 順にバッチ処理]"
 ---
 

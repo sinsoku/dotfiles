@@ -87,7 +87,6 @@
 
 各リポジトリの `<project_root>/.claude/issue-config.md` に集約（`/local.issue-init` が雛形生成）。skill 本体は固有値を持たない。
 
-- **情報源**: 調査の起点メモ（scan は廃止。スキルは読まない。人間と AI がセッションで調査する際の参考情報）。Sentry / Datadog 等のプロジェクト固有のパラメータ（URL・クエリ・閾値等）を記載。fingerprint 規約は REFERENCE.md に統一。
 - **priority 基準**: critical / high / low の判断基準（無指定＝中）。
 - **triage 方針**: 既知の想定エラー（常に wontfix の allowlist）、auto-fix してよいカテゴリ
 - **lint/test**: solve / review が変更ファイルに走らせる任意コマンド（例 `bundle exec rubocop`）。未設定ならスキップ
