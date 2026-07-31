@@ -39,7 +39,16 @@
     "ruby-lsp@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
-    "pr-review-toolkit@claude-plugins-official": true
+    "pr-review-toolkit@claude-plugins-official": true,
+    "sinsoku@sinsoku-plugins": true
+  },
+  "extraKnownMarketplaces": {
+    "sinsoku-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "sinsoku/claude-plugins"
+      }
+    }
   },
   "alwaysThinkingEnabled": true,
   "preferredNotifChannel": "terminal_bell",
