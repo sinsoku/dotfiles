@@ -32,3 +32,7 @@ vim -c PlugInstall
 
 # bin
 ln -fs ${shell_path}/bin ~/
+
+# supervisor
+mkdir -p $(brew --prefix)/etc/supervisor.d
+ln -fs ${shell_path}/supervisor/givy.ini $(brew --prefix)/etc/supervisor.d/
